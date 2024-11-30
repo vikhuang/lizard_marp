@@ -455,7 +455,7 @@ section table th,
 section table td {
     font-size: 0.8em;
     padding: 0.4em 0.4em;
-    border-right: 1px solid var(--JAMA-background);
+    border: 1px solid var(--JAMA-background);
 }
 section table th:last-child,
 section table td:last-child {
