@@ -157,6 +157,15 @@ section h4 {
 section br {
     break-before: column;
 }
+section.lg table,
+seciton.lg p,
+section.lg > ul {
+    font-size: 1.5em !important;
+}
+
+section.xl table {
+    font-size: 1.8em !important;
+}
 
 section h4.datetime {
     font-size: 0.9em;
@@ -194,15 +203,11 @@ section blockquote {
     animation-delay: 1s;
 }
 
-section ul > li,
-section ol > li {
-    margin: 0.5em 0 0 0;
-    color: var(--JAMA-cyan);
-}
-section ul > li > p,
-section ol > li > p {
-    margin: 0.6em 0 0 0;
-}
+/* section ol > li { */
+/*   section ul > li, */
+/*     margin: 0.5em 0 0 0; */
+/*     color: var(--JAMA-cyan); */
+/* } */
 
 section pre {
     display: block;
@@ -259,19 +264,16 @@ blockquote > blockquote > blockquote {
     left: 10px;
 }
 section mark {
-    background: transparent;
-}
-
-section mark {
+    font-size: 150%;
+    font-weight: 700;
+    color: var(--JAMA-blue);
     display: inline-block;
+    background: transparent;
     padding-bottom: 3px;
-    background-image: linear-gradient(#3d6869 0 0);
+    /* background-image: linear-gradient(#3d6869 0 0); */
     background-position: 0 100%; /*OR bottom left*/
     background-repeat: no-repeat;
     background-size: 100% 5px;
-    animation:
-        underline-animation 0.6s forwards,
-        text-color-animation 0.6s forwards; /* 使用動畫 */
 }
 
 @keyframes underline-animation {
@@ -562,6 +564,12 @@ section.section::after {
     color: var(--JAMA-background);
 }
 
+section.section ul {
+    position: relative;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* 修正偏移 */
+}
 section.section li.before {
     opacity: 0.2; /* 降低透明度 */
     font-size: 0.7em; /* 保持正常字體大小 */
@@ -569,7 +577,7 @@ section.section li.before {
 }
 
 section.section li.current {
-    font-size: 2em; /* 增加字體大小 */
+    font-size: 1.2em; /* 增加字體大小 */
     font-weight: 900;
     list-style-type: none;
     position: relative;
@@ -614,6 +622,8 @@ section.happy {
 /* TWO colomn style */
 section.two {
     column-count: 2;
+    column-gap: 1em; /* 欄間距 */
+    padding: 10px;
 }
 
 /* fit h1 */
@@ -728,7 +738,7 @@ section.free div {
     margin: 10px 0; /* 上下邊距，為標題和其他元素之間提供空間 */
 }
 
-section.even h2 {
+even h2 {
     display: flex;
     flex-direction: column;
     /* justify-content: center; */
@@ -1500,14 +1510,6 @@ img[alt*="uml"] {
     transform: translateY(0);
 }
 
-section.lg table {
-    font-size: 1.5em !important;
-}
-
-section.xl table {
-    font-size: 1.8em !important;
-}
-
 /* ================================= animation ================================ */
 /* animation */
 
@@ -1524,6 +1526,7 @@ section.xl table {
 }
 section h4 {
     opacity: 1;
+    break-before: column;
     transform: translateY(0);
     animation: head-fade-in 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
 }
@@ -1597,11 +1600,11 @@ section h4 {
     }
 }
 
-li.current {
-    display: inline-block; /* Ensures the element respects transform properly */
-    animation: bounceSize 3s infinite;
-    text-align: left;
-}
+/* li.current { */
+/*     display: inline-block;  */
+/*     animation: bounceSize 3s infinite; */
+/*     text-align: left; */
+/* } */
 
 @keyframes bounceSize {
     0%,
