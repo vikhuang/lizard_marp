@@ -1,0 +1,692 @@
+/* @theme components/_layout */
+
+.outline li {
+    font-size: 1.2em;
+    font-weight: 700;
+    color: #dddddd;
+}
+
+.outline strong {
+    font-size: 1em;
+}
+
+.free {
+    display: flex;
+    width: 100%;
+    gap: 1em;
+}
+.free div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* height: 600px; /* 設置一個合適的高度 */
+}
+.free > div img:not(.emoji) {
+    width: auto;
+    transition: transform 0.3s ease;
+}
+
+.free > div img:not(.emoji) {
+    width: auto;
+    transition: transform 0.3s ease;
+}
+
+.bigtable > div {
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.bigtable > div > table {
+    border-spacing: 0;
+    border-collapse: collapse;
+    /* border: 1px solid; */
+    /* border-color: var(--JAMA-background); */
+    border-radius: 9px; /* sets the border radius */
+    overflow: hidden; /* hides the overflow from the rounded corners */
+    margin: 1em 0 0 0;
+    border: 1px solid var(--JAMA-background);
+}
+.bigtable > div > table th,
+.bigtable > div > table td {
+    text-align: center;
+    font-size: 1.8em;
+    padding: 0.4em 1.4em;
+    border-left: 50px solid var(--JAMA-background);
+    border-right: 50px solid var(--JAMA-background);
+    background: #eeeeee;
+}
+.bigtable > div > table thead th {
+    text-align: center;
+    background: var(--JAMA-blue);
+    color: var(--JAMA-background);
+    border-top: 5px solid var(--JAMA-background);
+    font-size: 1.8em;
+    color: white; /* sets the text color of the table header to white */
+}
+.bigtable > div > table tbody > tr:nth-child(even) td,
+.bigtable > div > table tbody > tr:nth-child(even) th {
+    background: var(--JAMA-current-line);
+    font-size: 1.8em;
+}
+
+.even {
+    display: flex;
+    width: 100%;
+    gap: 1.5rem;
+    justify-content: space-between; /* 如果您想要在元素之間和容器邊緣有相同的空間，可用 space-around */
+}
+
+.even > div img {
+    width: 5.1rem;
+}
+
+.even div {
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    flex-grow: 1; /* 新增這行讓 div 元素平均分佈並填充可用空間 */
+    /* 移除了高度的設定，因為它目前被注釋了 */
+    padding: 15px; /* 增加一些內距，讓邊框不會太靠近文字 */
+    margin: 10px 0; /* 上下邊距，為標題和其他元素之間提供空間 */
+}
+
+even h2 {
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    flex-grow: 1; /* 新增這行讓 div 元素平均分佈並填充可用空間 */
+    /* 移除了高度的設定，因為它目前被注釋了 */
+    padding: 15px; /* 增加一些內距，讓邊框不會太靠近文字 */
+    margin: 10px 0; /* 上下邊距，為標題和其他元素之間提供空間 */
+}
+
+.boxlist {
+    display: flex;
+    width: 100%;
+    gap: 1.5rem;
+    justify-content: space-between; /* 如果您想要在元素之間和容器邊緣有相同的空間，可用 space-around */
+}
+
+.boxlist div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex-grow: 1; /* 新增這行讓 div 元素平均分佈並填充可用空間 */
+    /* 移除了高度的設定，因為它目前被注釋了 */
+    background-color: #efefef;
+    border-bottom: 10px solid var(--JAMA-blue); /* 下邊框設置為藍色 */
+    /* box-shadow: var(--box-shadow); */
+    padding: 15px; /* 增加一些內距，讓邊框不會太靠近文字 */
+    margin: 20px 20px; /* 上下邊距，為標題和其他元素之間提供空間 */
+}
+.boxlist ul {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0;
+    margin: 0;
+}
+
+.boxlist ul li {
+    display: inline-flex;
+    margin-right: 20px; /* 根據需要調整間距 */
+    list-style-type: none;
+}
+.boxlist ul li::before {
+    content: "● ";
+    margin-right: 8px; /* 調整短橫線與文字的間距 */
+}
+
+.top {
+    display: flex;
+    width: 100%;
+    gap: 1.5rem;
+}
+
+.top div {
+    /* display: flex; */
+    /* flex-direction: column; */
+    justify-content: center;
+    /* height: 600px; /* 設置一個合適的高度 */
+}
+.container {
+    display: flex;
+}
+.tri {
+    display: flex;
+    justify-content: center;
+    align-items: left;
+    gap: 1rem;
+}
+
+.tri > div {
+    flex: 1;
+    width: calc(33% - 0.5rem); /* set width to 50% minus half the gap */
+    padding: var(--box-padding); /* 增加一些內距，讓邊框不會太靠近文字 */
+    background-color: #efefef;
+    border-bottom: 10px solid var(--JAMA-blue); /* 下邊框設置為藍色 */
+    /* box-shadow: var(--box-shadow); */
+    transition: transform 0.3s ease;
+    margin: 20px 0px; /* 上下邊距，為標題和其他元素之間提供空間 */
+}
+.tri > div > p > strong {
+    font-size: 1.5em;
+    font-weight: 900;
+    color: var(--JAMA-blue);
+    column-span: all;
+}
+.tetra {
+    display: flex;
+    justify-content: center;
+    align-items: left;
+    gap: 1rem;
+}
+
+.tetra > div {
+    flex: 1;
+    width: calc(25% - 0.5rem); /* set width to 50% minus half the gap */
+    border-bottom: 10px solid var(--JAMA-blue); /* 下邊框設置為藍色 */
+    background-color: #efefef;
+    /* box-shadow: var(--box-shadow); */
+    padding: var(--box-padding); /* 增加一些內距，讓邊框不會太靠近文字 */
+    margin: 20px 0px; /* 上下邊距，為標題和其他元素之間提供空間 */
+    transition: transform 0.3s ease;
+}
+.third {
+    display: flex;
+    align-items: left;
+    justify-content: space-between;
+}
+
+.third > div {
+    flex: 1;
+    padding-right: 0.5em;
+    box-sizing: border-box;
+}
+
+.third img {
+    max-width: 340px !important; /* 限制圖片最大寬度 */
+    width: 100%; /* 確保圖片不會超過父元素寬度 */
+    height: auto; /* 保持圖片比例 */
+}
+.twoone {
+    display: flex;
+    justify-content: center;
+    align-items: left;
+    gap: 1rem;
+}
+.twoone > div:first-child {
+    flex: 2;
+    width: calc(66% - 0.5rem); /* 2/3 */
+    padding-right: 0.5em;
+    transition: transform 0.3s ease;
+}
+.twoone > div:last-child {
+    flex: 1;
+    width: calc(33% - 0.5rem); /* 1/3 */
+    padding-right: 0.5em;
+    transition: transform 0.3s ease;
+}
+
+.onetwo {
+    display: flex;
+    justify-content: center;
+    align-items: left;
+    gap: 1rem;
+}
+
+.onetwo > div:first-child {
+    flex: 1;
+    width: calc(33% - 0.5rem); /* 1/3 */
+    padding-right: 0.5em;
+    transition: transform 0.3s ease;
+}
+
+.onetwo > div:last-child {
+    flex: 2;
+    width: calc(66% - 0.5rem); /* 2/3 */
+    padding-right: 0.5em;
+    transition: transform 0.3s ease;
+}
+.half {
+    display: flex;
+    justify-content: center;
+    align-items: left;
+    gap: 1rem;
+}
+
+.half > div {
+    flex: 1;
+    width: calc(50% - 0.5rem); /* set width to 50% minus half the gap */
+    padding-right: 1em;
+    transition: transform 0.3s ease;
+}
+.half > div:hover,
+.free > div img:hover {
+    transform: translateY(-10px);
+    transform-origin: center;
+    border-top-width: 0px;
+}
+.columns {
+    padding-top: 1em;
+    padding-right: 1em;
+    /* margin-right: 1.5em; */
+    display: flex;
+    justify-content: center;
+    align-items: left;
+    gap: 1rem;
+}
+.columns > div img:not(.emoji) {
+    display: block;
+    margin: 0 auto;
+    max-width: 100%;
+    height: auto;
+}
+.columns > div {
+    flex: 1;
+    width: calc(50% - 0.5rem); /* set width to 50% minus half the gap */
+    transition: transform 0.3s ease;
+    padding-right: 0.5em;
+}
+/* .columns div:not(:last-child) { */
+/*   border-right: 1px dashed #2d696a; */
+/* } */
+.columns div:not(:last-child) {
+    position: relative;
+}
+
+.columns div:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    top: 30px; /* Start 10px from the top */
+    bottom: 30px; /* End 10px from the bottom */
+    border-right: 1px dashed #2d696a;
+    width: 0; /* Ensures the pseudo-element is a line */
+}
+.columns div:hover {
+    transform: translateY(-5px);
+    transform-origin: center;
+    border-top-width: 0px;
+}
+hr {
+    border: 1px dashed var(--JAMA-blue);
+    margin-top: 10px;
+    opacity: 0.5;
+    /* margin-left: -50px; */
+    margin-bottom: 10px;
+}
+.dash {
+    border: none;
+    border-top: 1px dashed #2d696a;
+    height: 0;
+    margin: 0.4em 0;
+}
+.centered-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 600px; /* 設置一個合適的高度 */
+}
+a {
+    color: var(--JAMA-cyan);
+}
+ul li:hover::marker {
+    transform: scale(1.5);
+    color: #ffb703;
+}
+li {
+    transition: opacity 0.3s ease;
+    transition: transform 0.3s ease;
+}
+li::marker {
+    color: #2d696a;
+}
+li:hover {
+    /* transform: translateX(-5px); */
+    /* transform: scale(1.05); */
+    transition: transform 0.3s ease;
+    text-decoration: underline;
+    text-decoration-color: #6c9a77;
+    text-decoration-style: solid;
+    text-decoration-thickness: 1px;
+}
+/* for toc */
+.scroll li:hover {
+    transform: translateX(15px);
+    /* transform: scale(1.25); */
+    transition: transform 0.2s ease;
+    text-decoration: underline;
+    text-decoration-color: #6c9a77;
+    text-decoration-style: solid;
+    text-decoration-thickness: 5px;
+}
+li[data-bespoke-marp-fragment="active"] {
+    opacity: 1;
+    transition: transform 0.3s ease;
+}
+li[data-bespoke-marp-fragment="inactive"] {
+    transition: transform 0.3s ease;
+    visibility: visible;
+    opacity: 0.2;
+}
+pre ol li > span:hover {
+    font-weight: 800;
+    transition: transform 0.1s ease;
+    transform: translateX(10px);
+    /* color: var(--JAMA-green); */
+    color: #ffb703;
+}
+pre ol li::before:hover {
+    color: #ffb703;
+}
+
+td:hover {
+    /* box-shadow: 12px 2px 15px rgba(0, 0, 0, 0.3); */
+    color: #2d696a;
+    /* border: 2px solid #2d696a; */
+    background-color: white; /* sets the background color of the table header */
+    transition: opacity 0.5s ease;
+}
+tr:hover {
+    transition: transform 0.3s ease;
+}
+button {
+    display: inline-block;
+    outline: none;
+    cursor: pointer;
+    font-size: inherit;
+    line-height: 1;
+    border-radius: 200px;
+    transition-property: background-color, border-color, color, box-shadow,
+        filter;
+    transition-duration: 0.3s;
+    border: 1px solid transparent;
+    letter-spacing: 2px;
+    min-width: 160px;
+    text-transform: uppercase;
+    white-space: normal;
+    font-weight: 700;
+    text-align: center;
+    padding: 2px 2px;
+    margin-left: 20px;
+    color: #fff;
+    background-color: #2d696a;
+    height: 48px;
+    :hover {
+        transform: scale(1.04);
+        background-color: #2d696a;
+    }
+}
+.container {
+    border: 1px solid black;
+    margin: 10px;
+}
+summary {
+    color: #2d696a;
+    font-weight: bold;
+}
+/* line num in codebox  */
+pre ol {
+    all: unset;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    counter-reset: line-number 0;
+}
+code ol {
+    padding-right: 0em;
+}
+pre ol li {
+    display: contents;
+    color: #fff;
+    font-weight: 400;
+    line-height: 1.5em;
+    /* font-family: "Inter", sans-serif; */
+    /* font-family: "Overpass Mono", monospace; */
+    font-family: "JetBrains Mono", monospace;
+}
+
+pre ol li span[data-marp-line-number]::before {
+    display: block;
+    content: counter(line-number);
+    counter-increment: line-number;
+    text-align: right;
+    color: #595959;
+    font-weight: 800;
+    background-color: #222;
+    border-right: 5px solid #595959;
+    margin-right: 0.51em;
+    padding-right: 0.51em;
+    padding-left: 0.51em;
+}
+
+svg.markmap {
+    width: 200%;
+}
+div[class^="admonition"] {
+    column-span: all;
+    margin: 0.8em 10px 0.8em;
+    /* background: white; */
+    /* margin-left: 10px; */
+    /* max-width: 40%; */
+    /* transition: transform 0.2s ease; */
+}
+div[class^="admonition"] > p > strong {
+    font-weight: bold;
+}
+/* div[class^="admonition"] > p  { */
+/* } */
+p.admonition-title {
+    padding: 5px 0px 5px 40px;
+    margin: 15px 0px 0px 0px;
+}
+p.admonition-title::before {
+    padding-left: 10px;
+    padding-top: 4px;
+    /* animation: fade 2s cubic-bezier(0.4, 0, 0.2, 1) infinite; */
+}
+
+.table-of-contents {
+    overflow-y: scroll;
+    height: 580px;
+}
+
+.markdown-alert {
+    padding: 1em;
+    border-left: 0.3rem solid;
+    padding-bottom: 0px;
+    padding-top: 0px;
+    border-color: var(--border-color);
+}
+
+.markdown-alert > span {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    color: var(--border-color);
+}
+
+.markdown-alert .markdown-alert-icon {
+    margin-right: 0.5em;
+    fill: var(--border-color);
+}
+
+.markdown-alert.note {
+    --border-color: #539bf5;
+}
+
+.markdown-alert.warning {
+    --border-color: #c69026;
+}
+
+.markdown-alert.important {
+    --border-color: #986ee2;
+}
+
+.markdown-alert.caution {
+    --border-color: #e5534b;
+}
+
+.markdown-alert.tip {
+    --border-color: #57ab5a;
+}
+
+.task-list-item-checkbox {
+    transform: scale(1.5);
+}
+
+.box {
+    width: 40%;
+    margin: 0 auto;
+    background: rgba(255, 255, 255, 0.2);
+    padding: 35px;
+    border: 2px solid #fff;
+    border-radius: 20px/50px;
+    background-clip: padding-box;
+    text-align: center;
+}
+.button {
+    font-size: 1em;
+    padding: 2px;
+    border: 2px solid #06d85f;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.3s ease-out;
+}
+.button:hover {
+    background: #06d85f;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.7);
+    transition: opacity 500ms;
+    visibility: hidden;
+    opacity: 0;
+}
+.overlay:target {
+    visibility: visible;
+    opacity: 1;
+}
+
+.popup {
+    margin: 70px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 5px;
+    width: 70%;
+    position: relative;
+    transition: all 5s ease-in-out;
+}
+
+.popup h2 {
+    margin-top: 0;
+    color: #333;
+}
+.popup .close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    transition: all 200ms;
+    font-size: 30px;
+    font-weight: bold;
+    text-decoration: none;
+    color: #333;
+}
+.popup .close:hover {
+    color: #06d85f;
+}
+.popup .content {
+    max-height: 30%;
+    overflow: auto;
+}
+img[alt*="circle"] {
+    border-radius: 50%;
+}
+
+ruby rt {
+    color: deeppink;
+}
+
+@media screen and (max-width: 1000px) {
+    .box {
+        width: 70%;
+    }
+    .popup {
+        width: 70%;
+    }
+}
+.markmap > svg {
+    width: 100%;
+    height: 550px;
+    font: 300 16px/20px sans-serif;
+}
+
+.material-symbols-outlined {
+    font-size: 140px;
+    color: #2d696a;
+    margin-bottom: 2px;
+    font-variation-settings:
+        "FILL" 1,
+        "wght" 500,
+        "GRAD" 100,
+        "opsz" 48;
+}
+
+.bx {
+    color: #2d696a;
+}
+g {
+    font-size: 60px; /* 調整這裡的數值來改變字體大小 */
+}
+.mdi-label {
+    padding: 0.2em 0.6em 0.3em;
+    font-size: 75%;
+    font-weight: 700;
+    white-space: nowrap;
+    vertical-align: baseline;
+    border-radius: 0.25em;
+}
+
+.mdi-label-text-light {
+    color: white;
+}
+
+.mdi-label-text-dark {
+    color: #332900;
+}
+.tag {
+    border: 2px solid var(--JAMA-blue);
+    border-radius: 10px;
+    padding: 5px 10px;
+    display: inline-block;
+    color: var(--JAMA-blue);
+    font-weight: bold;
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+.tag:hover {
+    transform: translateY(-5px); /* 向上移動5px */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* 添加陰影效果 */
+}
+::selection {
+    background-color: var(--JAMA-blue);
+    color: white !important;
+}
+
+.lab ul ul {
+    display: inline-block;
+    margin-left: auto;
+    padding-left: 0;
+    list-style-type: none;
+}
+
+.lab ul ul li {
+    /* display: inline; */
+    margin-right: 10px; /* 調整間距 */
+}

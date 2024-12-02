@@ -158,11 +158,10 @@ section br {
     break-before: column;
 }
 section.lg table,
-seciton.lg p,
 section.lg > ul {
     font-size: 1.5em !important;
+    line-height: 1.4;
 }
-
 section.xl table {
     font-size: 1.8em !important;
 }
@@ -202,12 +201,6 @@ section blockquote {
     animation-fill-mode: both;
     animation-delay: 1s;
 }
-
-/* section ol > li { */
-/*   section ul > li, */
-/*     margin: 0.5em 0 0 0; */
-/*     color: var(--JAMA-cyan); */
-/* } */
 
 section pre {
     display: block;

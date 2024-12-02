@@ -1,0 +1,68 @@
+/* @theme components/_headings */
+
+section h1 {
+    font-size: 3em;
+    font-weight: 900;
+    /* font-style: italic; */
+    /* margin-top: 100px; */
+    margin-bottom: 20px;
+    color: var(--JAMA-foreground);
+}
+
+section h2 {
+    font-size: 1.8em;
+    font-weight: 900;
+    color: var(--JAMA-blue);
+    column-span: all;
+}
+
+section h4 {
+    font-size: 1.5em;
+    font-weight: 900;
+    color: var(--JAMA-foreground);
+    break-before: column;
+    font-size: 1.2em;
+    color: var(--JAMA-blue);
+}
+
+section h4.datetime {
+    font-size: 0.9em;
+    border-radius: 10px;
+    display: inline-block;
+    border: 2px solid var(--JAMA-blue);
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+    margin-bottom: 10px;
+    padding: 10px 10px;
+}
+
+section h5 {
+    font-size: 1.2em;
+    color: var(--JAMA-foreground);
+}
+
+section h6 {
+    font-size: 1em;
+    font-style: italic;
+    color: var(--JAMA-blue);
+}
+
+section h2,
+section h3,
+section h4,
+section h5,
+section h6 {
+    margin: 0.2em 0 0 0;
+    max-width: 90%;
+}
+
+section h1 strong,
+section h2 strong,
+section h3 strong,
+section h4 strong,
+section h5 strong,
+section h6 strong {
+    font-weight: inherit;
+    background: -webkit-linear-gradient(right, #6c9a77, #2d696a);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
