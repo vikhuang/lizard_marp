@@ -12,7 +12,14 @@ section h1 {
 section h2 {
     font-size: 1.8em;
     font-weight: 900;
-    color: var(--JAMA-blue);
+    color: var(--JAMA-foreground);
+    column-span: all;
+}
+
+section h3 {
+    font-size: 1.6em;
+    font-weight: 700;
+    color: var(--JAMA-foreground);
     column-span: all;
 }
 
@@ -65,4 +72,14 @@ section h6 strong {
     background: -webkit-linear-gradient(right, #6c9a77, #2d696a);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+}
+
+.h2text,
+.bread {
+    display: inline-block;
+}
+
+.h2text {
+    color: gray;
+    padding-right: 20px;
 }
