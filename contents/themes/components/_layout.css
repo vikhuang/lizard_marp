@@ -690,3 +690,54 @@ g {
     /* display: inline; */
     margin-right: 10px; /* 調整間距 */
 }
+
+.twocolumn p {
+    columns: 2;
+}
+
+.row {
+    display: flex;
+    min-height: 30vh;
+    max-height: 80vh;
+    margin: 50;
+    flex-wrap: wrap; /* Add this to allow wrapping */
+}
+
+.row > ul:not(ul ul) {
+    flex: 1;
+    margin-left: 150;
+}
+
+.row > ul > li {
+    padding: 10px;
+    flex: 1;
+    min-height: 30vh;
+}
+
+.row > ul > li:first-child ul {
+    padding: 20px;
+    background: var(--JAMA-blue);
+    min-height: 20vh;
+}
+
+.row > ul > li:first-child ul {
+    border-radius: 1px;
+}
+
+.row > ul > li:first-child ul,
+.row > ul > li:first-child li {
+    font-size: 24px;
+    color: var(--JAMA-background);
+    line-height: initial;
+    weight: initial;
+    list-style: none;
+}
+
+.row > ul > li:first-child {
+    weight: 900;
+    line-height: 2.5;
+    text-align: center;
+    list-style: none;
+    font-size: 1.5em !important;
+    color: var(--JAMA-blue);
+}

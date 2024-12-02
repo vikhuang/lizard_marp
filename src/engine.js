@@ -1,25 +1,27 @@
-const addDynamicHeader = require("./utils/header")
-const applyPlugins = require("./plugins")
-const applyLineNumber = require("./utils/lineNumber")
-const applySection = require("./utils/section")
-const applyDate = require("./utils/date")
-const copyCode = require("./utils/copy_code")
-const agenda = require("./utils/agenda")
-const cc = require("./utils/add_cc")
+const addDynamicHeader = require("./utils/header");
+const applyPlugins = require("./plugins");
+const applyLineNumber = require("./utils/lineNumber");
+const applySection = require("./utils/section");
+const applyDate = require("./utils/date");
+const applyLayout = require("./utils/layout");
+const copyCode = require("./utils/copy_code");
+const agenda = require("./utils/agenda");
+const cc = require("./utils/add_cc");
 // FIX: const addZoomFeature = require("./utils/zoom")
 // FIX: const roman = require("./utils/roman")
 
 module.exports = ({ marp }) => {
-    const instance = applyPlugins(marp)
-    applyLineNumber(instance)
-    addDynamicHeader(instance)
-    applySection(instance)
-    applyDate(instance)
-    agenda(instance)
-    copyCode(instance)
-    cc(instance)
+	const instance = applyPlugins(marp);
+	applyLineNumber(instance);
+	addDynamicHeader(instance);
+	applyLayout(instance);
+	applySection(instance);
+	applyDate(instance);
+	agenda(instance);
+	copyCode(instance);
+	cc(instance);
 
-    // addZoomFeature(instance)
-    // roman(instance)
-    return instance
-}
+	// addZoomFeature(instance)
+	// roman(instance)
+	return instance;
+};

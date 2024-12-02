@@ -172,10 +172,6 @@ em {
     font-style: italic; /* 設置斜體 */
 }
 section section::after,
-section blockquote::before,
-section blockquote::after {
-    color: var(--JAMA-comment);
-}
 section footer,
 section::after {
     box-sizing: border-box;
@@ -385,4 +381,46 @@ section.free div {
 .popup.show {
     opacity: 1;
     transform: translateY(0);
+}
+
+section blockquote {
+    font-size: 10px !important;
+    margin: 5px 0 0 0;
+    padding-top: 5px;
+    border-top: 0.1px solid #555;
+    margin-top: 10px;
+    color: var(--JAMA-foreground);
+    /* background: var(--JAMA-background); */
+    position: absolute;
+    bottom: 0px;
+    right: 100px;
+    left: 50px;
+}
+section blockquote::before {
+    content: "";
+    display: block;
+    font-weight: bold;
+    position: absolute;
+    color: var(--JAMA-green);
+    top: 0;
+    left: 0;
+}
+section blockquote > *:first-child {
+    margin-top: 0;
+}
+section blockquote > blockquote > blockquote {
+    font-size: 50%;
+    font-weight: 400;
+    padding: 0;
+    margin: 0;
+    border: 0;
+    border-top: 0.1em dashed #555;
+    position: absolute;
+    bottom: -10px;
+    left: 10px;
+}
+
+section blockquote::before,
+section blockquote::after {
+    color: var(--JAMA-comment);
 }
