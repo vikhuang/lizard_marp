@@ -52,6 +52,20 @@ This will launch a local server at `http://localhost:8080` where you can view al
 2. Use Marp's markdown syntax to create your presentation
 3. View your presentation in real-time through the development server
 
+## Export Presentation
+
+To html
+
+```bash
+npm run build -- contents/YOUR_FILE.md
+```
+
+To PDF
+
+```bash
+npm run build:pdf -- contents/YOUR_FILE.md
+```
+
 ## Example Presentation
 
 ```markdown
