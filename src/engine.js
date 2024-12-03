@@ -5,6 +5,7 @@ const applySection = require("./utils/section");
 const applyDate = require("./utils/date");
 const applyLayout = require("./utils/layout");
 const applyH2text = require("./utils/addh2text.js");
+const nexth3 = require("./utils/nexth3.js");
 const copyCode = require("./utils/copy_code");
 const agenda = require("./utils/agenda");
 const cc = require("./utils/add_cc");
@@ -19,6 +20,7 @@ module.exports = ({ marp }) => {
 	applySection(instance);
 	applyH2text(instance);
 	applyDate(instance);
+	// nexth3(instance);
 	agenda(instance);
 	copyCode(instance);
 	cc(instance);

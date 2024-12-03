@@ -691,10 +691,6 @@ g {
     margin-right: 10px; /* 調整間距 */
 }
 
-.twocolumn p {
-    columns: 2;
-}
-
 .row {
     display: flex;
     min-height: 30vh;
@@ -740,4 +736,33 @@ g {
     list-style: none;
     font-size: 1.5em !important;
     color: var(--JAMA-blue);
+}
+
+.c2,
+.c3,
+.c4 {
+    column-gap: 20px; /* 設定欄間距 */
+    border-top: 2px solid gray; /* 頂部線條寬度為 2px，顏色為黑色 */
+    padding-top: 25px;
+    margin-top: 25px;
+    min-height: 60vh;
+}
+
+.c2 p ul,
+.c3 p ul,
+.c4 p ul {
+    min-height: 50px;
+    max-height: 60vh;
+}
+
+.c2 {
+    column-count: 2; /* 設定為兩欄 */
+}
+
+.c3 {
+    column-count: 3; /* 設定為兩欄 */
+}
+
+.c4 {
+    column-count: 4; /* 設定為兩欄 */
 }

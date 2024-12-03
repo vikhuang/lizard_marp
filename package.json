@@ -61,6 +61,7 @@
 	},
 	"scripts": {
 		"dev": "marp -I ./contents -s",
+		"debug": "marp -I ./contents -s --debug",
 		"build:pdf": "marp --pdf",
 		"build": "marp"
 	}
