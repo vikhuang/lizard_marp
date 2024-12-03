@@ -1,11 +1,19 @@
 {
+	"marp": {
+		"inputDir": "./contents",
+		"output": "./public",
+		"themeSet": "./themes",
+		"engine": "./src/engine.js",
+		"html": true,
+		"allowLocalFiles": true,
+		"ignore": "./node_modules/"
+	},
 	"dependencies": {
 		"@arothuis/markdown-it-biblatex": "^2.0.1",
 		"@fedify/markdown-it-hashtag": "^0.2.0",
 		"@gerhobbelt/markdown-it-html5-embed": "^1.0.0-2",
 		"@kazumatu981/markdown-it-fontawesome": "^1.0.4",
 		"@markslides/markdown-it-mermaid": "^0.1.0",
-		"@marp-team/marp-cli": "^1.4.1",
 		"@marp-team/marp-core": "^4.0.0",
 		"@vrcd-community/markdown-it-video": "^1.1.1",
 		"cheerio": "^1.0.0-rc.12",
@@ -42,9 +50,10 @@
 		"markvis": "^0.0.13"
 	},
 	"devDependencies": {
-		"@kazumatu981/markdown-it-kroki": "^1.3.4"
+		"@kazumatu981/markdown-it-kroki": "^1.3.4",
+		"@marp-team/marp-cli": "^4.0.3"
 	},
 	"scripts": {
-		"dev": "marp ./contents/ -s --engine ./src/engine.js --theme ./contents/themes/main.css --ignore ./node_modules --html --bespoke.progress"
+		"dev": "marp -s --bespoke.progress"
 	}
 }

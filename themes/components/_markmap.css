@@ -1,0 +1,80 @@
+/* @theme components/_markmap */
+
+.markmap ul {
+    padding-left: 20px;
+    position: relative;
+    list-style-type: none;
+}
+
+.markmap li {
+    margin: 0;
+    padding: 10px 5px;
+    line-height: 1.5;
+    white-space: nowrap;
+    position: relative;
+}
+
+.markmap li::before,
+.markmap li::after {
+    content: "";
+    position: absolute;
+    left: 0;
+}
+
+.markmap li::before {
+    border-left: 1px solid #000;
+    top: 0;
+    bottom: 50%;
+    height: 50%;
+    width: 20px;
+}
+
+.markmap li::after {
+    border-top: 1px solid #000;
+    top: 50%;
+    left: 20px;
+    width: calc(100% - 20px);
+}
+
+.markmap li > ul::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-left: 1px solid #000;
+    bottom: 0;
+    height: 100%;
+}
+
+.markmap ul ul {
+    margin-left: 20px;
+    padding-left: 0;
+}
+
+.markmap li:first-child::before {
+    height: 50%;
+}
+
+.markmap li:last-child::before {
+    top: 50%;
+    height: 50%;
+}
+
+.markmap li:only-child::before {
+    display: none;
+}
+
+.markmap li:only-child::after {
+    width: 20px;
+}
+
+.markmap ul ul::before {
+    left: 20px;
+}
+
+.basic-label-container {
+    fill: #f5f5f5; /* Light gray background */
+    stroke: 2px solid #333; /* Solid dark gray border */
+    padding: 10px; /* Some padding for content */
+    border-radius: 4px; /* Slightly rounded corners */
+}
