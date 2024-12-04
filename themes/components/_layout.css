@@ -746,13 +746,7 @@ g {
     padding-top: 25px;
     margin-top: 25px;
     min-height: 60vh;
-}
-
-.c2 p ul,
-.c3 p ul,
-.c4 p ul {
-    min-height: 50px;
-    max-height: 60vh;
+    column-fill: auto;
 }
 
 .c2 {
