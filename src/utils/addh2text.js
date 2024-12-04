@@ -1,15 +1,5 @@
 const cheerio = require("cheerio");
 
-// 簡單的 slug 函數實現
-function createSlug(text) {
-  return text
-    .toLowerCase()
-    .replace(/[^\w\s-]/g, '') // 移除特殊字符
-    .replace(/\s+/g, '-')     // 將空格替換為連字符
-    .replace(/-+/g, '-')      // 移除重複的連字符
-    .trim();                  // 移除前後空白
-}
-
 module.exports = (instance) => {
   const originalRender = instance.render.bind(instance);
 
@@ -18,22 +8,35 @@ module.exports = (instance) => {
       const result = originalRender(markdown, options);
       const $ = cheerio.load(result.html);
       let currentH2Text = "";
+      let isFirstH3AfterH2 = false;
 
+      // 處理所有的 h2 和 h3
       $("h2, h3").each((i, elem) => {
+        const $elem = $(elem);
         const tagName = elem.tagName.toLowerCase();
+        const elemText = $elem.text().trim();
 
         if (tagName === "h2") {
-          currentH2Text = $(elem).text().trim();
+          // 儲存當前 h2 文字供後續使用
+          currentH2Text = elemText;
+          // 重設 isFirstH3AfterH2 旗標
+          isFirstH3AfterH2 = true;
         }
-        else if (tagName === "h3" && currentH2Text) {
-          const transitionName = `h2-${createSlug(currentH2Text)}`;
-
-          $(elem).before(
-            $("<div>")
+        else if (tagName === "h3") {
+          // 如果有對應的 h2，添加 h2text div
+          if (currentH2Text) {
+            const $h2textDiv = $("<div>")
               .addClass("h2text")
-              .text(currentH2Text)
-              .attr("style", `view-transition-name: ${transitionName}`)
-          );
+              .text(currentH2Text);
+
+            // 如果是 h2 後的第一個 h3，添加 afterh2 class
+            if (isFirstH3AfterH2) {
+              $h2textDiv.addClass("firsth3afterh2");
+              isFirstH3AfterH2 = false;  // 重設旗標
+            }
+
+            $elem.before($h2textDiv);
+          }
         }
       });
 

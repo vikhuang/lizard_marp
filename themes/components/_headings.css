@@ -93,3 +93,27 @@ section h6 strong {
     position: absolute;
     top: 30px;
 }
+
+/* Element that will animate */
+.firsth3afterh2 {
+    animation: h2ToAnnotation 0.7s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+
+/* Animation keyframes */
+@keyframes h2ToAnnotation {
+    from {
+        font-size: 1.8em;
+        font-weight: 900;
+        color: var(--JAMA-foreground);
+        column-span: all;
+        top: 45px;
+    }
+
+    to {
+        color: gray;
+        padding-right: 20px;
+        font-size: 0.8em;
+        position: absolute;
+        top: 30px;
+    }
+}

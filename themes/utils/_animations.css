@@ -123,3 +123,18 @@
         background-position: 0% 100%;
     }
 }
+::view-transition-group(*) {
+    animation-duration: 300ms;
+}
+
+::view-transition-old(*),
+::view-transition-new(*) {
+    mix-blend-mode: normal;
+}
+
+/* 確保在 SVG 結構中也能正常運作 */
+::view-transition * svg,
+::view-transition * foreignObject {
+    transition: none;
+    animation: none;
+}
