@@ -17,6 +17,7 @@ lib-cov
 # Private Content
 contents/*
 !contents/.gitkeep
+!contents/example.md
 output/*
 graphviz/
 

@@ -68,6 +68,8 @@ npm run build:pdf -- contents/YOUR_FILE.md
 
 ## Example Presentation
 
+see [example](./contents/example.md)
+
 ```markdown
 ---
 title: "example"
