@@ -22,6 +22,20 @@ footer: "[■](#table-of-contents)"
 
 # Takeaway
 
+## hellow
+
+---
+
+- hellow
+  - hellow
+
+```r
+print("hellow")
+print("hellow")
+print("")
+print("")
+```
+
 ---
 
 ## <!--fit-->Thanks

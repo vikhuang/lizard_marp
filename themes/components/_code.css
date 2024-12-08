@@ -1,45 +1,152 @@
-/* @theme componets/_code */
+/* @theme components/_code */
 
+/* Code Block Container */
+section pre {
+    display: block;
+    min-height: 1em;
+    overflow: visible;
+    margin: 0;
+    padding: 0;
+    position: relative;
+}
+
+/* Code Content */
+section pre code {
+    box-sizing: border-box;
+    line-height: 1em;
+    background: #282a36; /* Dracula theme background */
+    margin: 0;
+    min-width: 100%;
+    padding: 1em;
+    font-size: 1em;
+    color: #f8f8f2; /* Dracula theme text */
+    overflow-x: auto;
+    position: relative;
+    display: block;
+}
+
+section pre code svg[data-marp-fitting="svg"] {
+    max-height: calc(480px - 1em);
+}
+
+/* Language Label Base Style */
+section pre code[class*="language-"]::before {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 0.1em 0.5em;
+    font-size: 0.5em;
+    background: #44475a;
+    color: #f8f8f2;
+    border-radius: 0 0 0 0.3em;
+    font-family: monospace;
+    z-index: 10;
+}
+
+/* Language Labels */
+section pre code.language-javascript::before { content: "JavaScript"; }
+section pre code.language-js::before { content: "JavaScript"; }
+section pre code.language-typescript::before { content: "TypeScript"; }
+section pre code.language-ts::before { content: "TypeScript"; }
+section pre code.language-python::before { content: "Python"; }
+section pre code.language-py::before { content: "Python"; }
+section pre code.language-java::before { content: "Java"; }
+section pre code.language-cpp::before { content: "C++"; }
+section pre code.language-c::before { content: "C"; }
+section pre code.language-css::before { content: "CSS"; }
+section pre code.language-html::before { content: "HTML"; }
+section pre code.language-xml::before { content: "XML"; }
+section pre code.language-bash::before { content: "Bash"; }
+section pre code.language-sh::before { content: "Shell"; }
+section pre code.language-json::before { content: "JSON"; }
+section pre code.language-yaml::before { content: "YAML"; }
+section pre code.language-markdown::before { content: "Markdown"; }
+section pre code.language-md::before { content: "Markdown"; }
+section pre code.language-sql::before { content: "SQL"; }
+section pre code.language-rust::before { content: "Rust"; }
+section pre code.language-go::before { content: "Go"; }
+section pre code.language-ruby::before { content: "Ruby"; }
+section pre code.language-rb::before { content: "Ruby"; }
+section pre code.language-php::before { content: "PHP"; }
+section pre code.language-r::before { content: "R"; }
+
+/* Syntax Highlighting - Dracula Theme */
+.hljs-built_in,
+.hljs-selector-tag,
+.hljs-section,
+.hljs-link {
+    color: #8be9fd;
+}
+
+.hljs-keyword {
+    color: #ff79c6;
+}
+
+.hljs-title,
+.hljs-attr,
+.hljs-meta-keyword {
+    color: #50fa7b;
+}
+
+.hljs-string,
+.hljs-meta,
+.hljs-name,
+.hljs-type,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition,
+.hljs-variable,
+.hljs-template-tag,
+.hljs-template-variable {
+    color: #f1fa8c;
+}
+
+.hljs-comment,
+.hljs-quote,
+.hljs-deletion {
+    color: #6272a4;
+}
+
+.hljs-literal,
+.hljs-number {
+    color: #bd93f9;
+}
+
+.hljs-keyword,
+.hljs-selector-tag,
+.hljs-literal,
+.hljs-title,
+.hljs-section,
+.hljs-doctag,
+.hljs-type,
+.hljs-name,
+.hljs-strong {
+    font-weight: bold;
+}
+
+.hljs-emphasis {
+    font-style: italic;
+}
+
+/* Code Blockquotes */
 section blockquote {
     font-size: 0.8em;
     margin: 5px 0 0 0;
+    padding-top: 5px;
+    border-top: 0.1px solid #555;
+    margin-top: 10px;
+    font-size: 50%;
+    color: var(--JAMA-foreground);
+    position: absolute;
+    bottom: 0px;
+    right: 100px;
+    left: 50px;
     animation-name: fadeIn;
     animation-duration: 0.5s;
     animation-fill-mode: both;
     animation-delay: 1s;
 }
 
-section pre {
-    display: block;
-    min-height: 1em;
-    color: #fff;
-    overflow: visible;
-}
-section pre code {
-    box-sizing: border-box;
-    line-height: 1em;
-    background: #333;
-    margin: 1;
-    min-width: 100%;
-    padding: 1em;
-    font-size: 1em;
-}
-section pre code svg[data-marp-fitting="svg"] {
-    max-height: calc(480px - 1em);
-}
-
-section blockquote {
-    padding-top: 5px;
-    border-top: 0.1px solid #555;
-    margin-top: 10px;
-    font-size: 50%;
-    color: var(--JAMA-foreground);
-    /* background: var(--JAMA-background); */
-    position: absolute;
-    bottom: 0px;
-    right: 100px;
-    left: 50px;
-}
 blockquote::before {
     content: "";
     display: block;
@@ -49,9 +156,11 @@ blockquote::before {
     top: 0;
     left: 0;
 }
+
 blockquote > *:first-child {
     margin-top: 0;
 }
+
 blockquote > blockquote > blockquote {
     font-size: 50%;
     font-weight: 400;
