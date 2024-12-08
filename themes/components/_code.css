@@ -44,31 +44,81 @@ section pre code[class*="language-"]::before {
 }
 
 /* Language Labels */
-section pre code.language-javascript::before { content: "JavaScript"; }
-section pre code.language-js::before { content: "JavaScript"; }
-section pre code.language-typescript::before { content: "TypeScript"; }
-section pre code.language-ts::before { content: "TypeScript"; }
-section pre code.language-python::before { content: "Python"; }
-section pre code.language-py::before { content: "Python"; }
-section pre code.language-java::before { content: "Java"; }
-section pre code.language-cpp::before { content: "C++"; }
-section pre code.language-c::before { content: "C"; }
-section pre code.language-css::before { content: "CSS"; }
-section pre code.language-html::before { content: "HTML"; }
-section pre code.language-xml::before { content: "XML"; }
-section pre code.language-bash::before { content: "Bash"; }
-section pre code.language-sh::before { content: "Shell"; }
-section pre code.language-json::before { content: "JSON"; }
-section pre code.language-yaml::before { content: "YAML"; }
-section pre code.language-markdown::before { content: "Markdown"; }
-section pre code.language-md::before { content: "Markdown"; }
-section pre code.language-sql::before { content: "SQL"; }
-section pre code.language-rust::before { content: "Rust"; }
-section pre code.language-go::before { content: "Go"; }
-section pre code.language-ruby::before { content: "Ruby"; }
-section pre code.language-rb::before { content: "Ruby"; }
-section pre code.language-php::before { content: "PHP"; }
-section pre code.language-r::before { content: "R"; }
+section pre code.language-javascript::before {
+    content: "JavaScript";
+}
+section pre code.language-js::before {
+    content: "JavaScript";
+}
+section pre code.language-typescript::before {
+    content: "TypeScript";
+}
+section pre code.language-ts::before {
+    content: "TypeScript";
+}
+section pre code.language-python::before {
+    content: "Python";
+}
+section pre code.language-py::before {
+    content: "Python";
+}
+section pre code.language-java::before {
+    content: "Java";
+}
+section pre code.language-cpp::before {
+    content: "C++";
+}
+section pre code.language-c::before {
+    content: "C";
+}
+section pre code.language-css::before {
+    content: "CSS";
+}
+section pre code.language-html::before {
+    content: "HTML";
+}
+section pre code.language-xml::before {
+    content: "XML";
+}
+section pre code.language-bash::before {
+    content: "Bash";
+}
+section pre code.language-sh::before {
+    content: "Shell";
+}
+section pre code.language-json::before {
+    content: "JSON";
+}
+section pre code.language-yaml::before {
+    content: "YAML";
+}
+section pre code.language-markdown::before {
+    content: "Markdown";
+}
+section pre code.language-md::before {
+    content: "Markdown";
+}
+section pre code.language-sql::before {
+    content: "SQL";
+}
+section pre code.language-rust::before {
+    content: "Rust";
+}
+section pre code.language-go::before {
+    content: "Go";
+}
+section pre code.language-ruby::before {
+    content: "Ruby";
+}
+section pre code.language-rb::before {
+    content: "Ruby";
+}
+section pre code.language-php::before {
+    content: "PHP";
+}
+section pre code.language-r::before {
+    content: "R";
+}
 
 /* Syntax Highlighting - Dracula Theme */
 .hljs-built_in,
@@ -171,4 +221,49 @@ blockquote > blockquote > blockquote {
     position: absolute;
     bottom: -10px;
     left: 10px;
+}
+
+pre ol li > span:hover {
+    font-weight: 800;
+    transition: transform 0.1s ease;
+    transform: translateX(10px);
+    /* color: var(--JAMA-green); */
+    color: #ffb703;
+}
+pre ol li::before:hover {
+    color: #ffb703;
+}
+
+pre ol li span[data-marp-line-number]::before {
+    display: block;
+    content: counter(line-number);
+    counter-increment: line-number;
+    text-align: right;
+    color: #595959;
+    font-weight: 800;
+    background-color: #222;
+    border-right: 5px solid #595959;
+    margin-right: 0.51em;
+    padding-right: 0.51em;
+    padding-left: 0.51em;
+}
+
+/* line num in codebox  */
+pre ol {
+    all: unset;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    counter-reset: line-number 0;
+}
+code ol {
+    padding-right: 10em;
+}
+pre ol li {
+    display: contents;
+    color: #fff;
+    font-weight: 400;
+    line-height: 1.5em;
+    /* font-family: "Inter", sans-serif; */
+    /* font-family: "Overpass Mono", monospace; */
+    font-family: "JetBrains Mono", monospace;
 }

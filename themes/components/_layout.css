@@ -370,17 +370,6 @@ li[data-bespoke-marp-fragment="inactive"] {
     visibility: visible;
     opacity: 0.2;
 }
-pre ol li > span:hover {
-    font-weight: 800;
-    transition: transform 0.1s ease;
-    transform: translateX(10px);
-    /* color: var(--JAMA-green); */
-    color: #ffb703;
-}
-pre ol li::before:hover {
-    color: #ffb703;
-}
-
 td:hover {
     /* box-shadow: 12px 2px 15px rgba(0, 0, 0, 0.3); */
     color: #2d696a;
@@ -425,39 +414,6 @@ button {
 summary {
     color: #2d696a;
     font-weight: bold;
-}
-/* line num in codebox  */
-pre ol {
-    all: unset;
-    display: grid;
-    grid-template-columns: auto 1fr;
-    counter-reset: line-number 0;
-}
-code ol {
-    padding-right: 0em;
-}
-pre ol li {
-    display: contents;
-    color: #fff;
-    font-weight: 400;
-    line-height: 1.5em;
-    /* font-family: "Inter", sans-serif; */
-    /* font-family: "Overpass Mono", monospace; */
-    font-family: "JetBrains Mono", monospace;
-}
-
-pre ol li span[data-marp-line-number]::before {
-    display: block;
-    content: counter(line-number);
-    counter-increment: line-number;
-    text-align: right;
-    color: #595959;
-    font-weight: 800;
-    background-color: #222;
-    border-right: 5px solid #595959;
-    margin-right: 0.51em;
-    padding-right: 0.51em;
-    padding-left: 0.51em;
 }
 
 svg.markmap {

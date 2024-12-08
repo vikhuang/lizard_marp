@@ -9,12 +9,12 @@
  */
 
 @import "base/_variables";
-@import "base/_hljs";
+/* @import "base/_hljs"; */
 @import "base/_typography";
 @import "components/_section";
 @import "components/_headings";
 @import "components/_tables";
-@import "components/_code";
+/* @import "components/_code"; */
 @import "components/_lists";
 @import "components/_layout";
 @import "components/_markmap";

@@ -3,6 +3,7 @@
 		"themeSet": "./themes",
 		"engine": "./src/engine.js",
 		"html": true,
+		"theme": "./themes/main.css",
 		"allowLocalFiles": true,
 		"ignore": "./node_modules/",
 		"pdfNotes": true,
@@ -52,7 +53,6 @@
 		"markdown-it-table-of-contents": "^0.6.0",
 		"markdown-it-task-lists": "^2.1.1",
 		"markdown-it-video": "^0.6.3",
-		"markdown-it-wikilinks": "^1.4.0",
 		"markdown-toc": "^1.2.0",
 		"markvis": "^0.0.13"
 	},

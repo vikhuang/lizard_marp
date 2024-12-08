@@ -5,7 +5,6 @@ const markdownItCollapsible = require("markdown-it-collapsible");
 const tableMergeCells = require("markdown-it-table-merge-cells");
 const markdownItIns = require("markdown-it-ins");
 const markdownItLabel = require("markdown-it-label");
-const markdownItWiki = require("markdown-it-wikilinks");
 const markdownItInclude = require("markdown-it-include");
 const markdownItKroki = require("@kazumatu981/markdown-it-kroki");
 const markdownItMark = require("markdown-it-mark");
@@ -26,50 +25,7 @@ const {
     containerNames,
     specialContainers,
 } = require("./containers");
-
-// Custom wiki links rule
-function customWikiLinks(md) {
-    const defaultRender = md.renderer.rules.text || function(tokens, idx, options, env, self) {
-        return self.renderToken(tokens, idx, options);
-    };
-
-    md.renderer.rules.text = function(tokens, idx, options, env, self) {
-        const token = tokens[idx];
-        const content = token.content;
-        
-        // Match wiki link patterns
-        const wikiPattern = /\[\[(.*?)\]\]/g;
-        let match;
-        let lastIndex = 0;
-        let result = '';
-
-        while ((match = wikiPattern.exec(content)) !== null) {
-            // Add text before the match
-            result += content.slice(lastIndex, match.index);
-            
-            // Process the wiki link
-            const linkText = match[1];
-            const [pageName, label] = linkText.split('|').reverse();
-            const displayText = label || pageName;
-            
-            // Special handling for TOC
-            if (pageName.toUpperCase() === 'TOC') {
-                result += `<a href="#table-of-contents" class="wikilink">${displayText}</a>`;
-            } else {
-                // Regular wiki link
-                const href = pageName.toLowerCase().replace(/\s+/g, '-');
-                result += `<a href="#${href}" class="wikilink">${displayText}</a>`;
-            }
-            
-            lastIndex = wikiPattern.lastIndex;
-        }
-        
-        // Add remaining text
-        result += content.slice(lastIndex);
-        
-        return result || defaultRender(tokens, idx, options, env, self);
-    };
-}
+const customWikiLinks = require("./utils/wikilinks");
 
 module.exports = (instance) => {
     // Apply custom wiki links handler

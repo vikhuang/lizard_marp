@@ -1,17 +1,20 @@
 /* @theme components/_wikilinks */
 /* Wiki Links Styling */
 section a.wikilink {
-    display: inline-block;
+    display: inline;
     color: #0366d6;
     text-decoration: none;
     border-bottom: 1px dashed #0366d6;
     padding-bottom: 1px;
     transition: all 0.2s ease;
+    opacity: 1 !important;
+    visibility: visible !important;
 }
 
 section a.wikilink:hover {
     color: #0056b3;
     border-bottom: 1px solid #0056b3;
+    text-decoration: none;
 }
 
 /* Special styling for TOC wiki link */
@@ -20,11 +23,14 @@ section a.wikilink[href="#table-of-contents"] {
     border-bottom: 1px dashed currentColor;
 }
 
-/* Ensure wiki links are visible in all contexts */
-section p a.wikilink,
+/* Ensure proper spacing in lists and tables */
 section li a.wikilink,
 section td a.wikilink {
-    display: inline-block !important;
-    opacity: 1 !important;
-    visibility: visible !important;
+    margin: 0 2px;
+}
+
+/* Fix for inline code blocks */
+section code a.wikilink {
+    border-bottom: none;
+    padding-bottom: 0;
 }

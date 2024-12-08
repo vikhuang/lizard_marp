@@ -1,6 +1,5 @@
 ---
 title: "example"
-marp: true
 author: Hsieh-Ting Lin
 paginate: true
 headingDivider: 3
@@ -24,12 +23,13 @@ footer: "[■](#table-of-contents)"
 
 ## hellow
 
----
+* hellow
+  * hellow
 
-- hellow
-  - hellow
+* hellow
+  * hellow
 
-```r
+```r {data-marpit-fragment=4}
 print("hellow")
 print("hellow")
 print("hellow")
