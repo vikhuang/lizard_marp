@@ -1,6 +1,7 @@
 /* @theme components/_code */
 
-/* Code Block Container */
+/* Code Block Container
+   ------------------- */
 section pre {
     display: block;
     min-height: 1em;
@@ -8,128 +9,101 @@ section pre {
     margin: 0;
     padding: 0;
     position: relative;
+    border-radius: 0.5em;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
 }
 
-/* Code Content */
+/* Code Content
+   ----------- */
 section pre code {
     box-sizing: border-box;
-    line-height: 1em;
+    line-height: 1.5;
     background: #282a36; /* Dracula theme background */
     margin: 0;
     min-width: 100%;
-    padding: 1em;
-    font-size: 1em;
+    padding: 1.2em;
+    font-size: 0.95em;
     color: #f8f8f2; /* Dracula theme text */
     overflow-x: auto;
     position: relative;
     display: block;
+    font-family: "JetBrains Mono", "Fira Code", monospace;
+    border-radius: 0.5em;
+    transition: all 0.3s ease;
 }
 
+/* SVG Fitting
+   ---------- */
 section pre code svg[data-marp-fitting="svg"] {
-    max-height: calc(480px - 1em);
+    max-height: calc(480px - 1.2em);
 }
 
-/* Language Label Base Style */
+/* Language Label Base Style
+   ----------------------- */
 section pre code[class*="language-"]::before {
     position: absolute;
-    top: 0;
-    right: 0;
-    padding: 0.1em 0.5em;
-    font-size: 0.5em;
+    top: 0.5em;
+    right: 0.5em;
+    padding: 0.2em 0.6em;
+    font-size: 0.7em;
     background: #44475a;
     color: #f8f8f2;
-    border-radius: 0 0 0 0.3em;
-    font-family: monospace;
+    border-radius: 0.3em;
+    font-family: "JetBrains Mono", monospace;
     z-index: 10;
+    opacity: 0.9;
+    transition: opacity 0.2s ease;
 }
 
-/* Language Labels */
-section pre code.language-javascript::before {
-    content: "JavaScript";
-}
-section pre code.language-js::before {
-    content: "JavaScript";
-}
-section pre code.language-typescript::before {
-    content: "TypeScript";
-}
-section pre code.language-ts::before {
-    content: "TypeScript";
-}
-section pre code.language-python::before {
-    content: "Python";
-}
-section pre code.language-py::before {
-    content: "Python";
-}
-section pre code.language-java::before {
-    content: "Java";
-}
-section pre code.language-cpp::before {
-    content: "C++";
-}
-section pre code.language-c::before {
-    content: "C";
-}
-section pre code.language-css::before {
-    content: "CSS";
-}
-section pre code.language-html::before {
-    content: "HTML";
-}
-section pre code.language-xml::before {
-    content: "XML";
-}
-section pre code.language-bash::before {
-    content: "Bash";
-}
-section pre code.language-sh::before {
-    content: "Shell";
-}
-section pre code.language-json::before {
-    content: "JSON";
-}
-section pre code.language-yaml::before {
-    content: "YAML";
-}
-section pre code.language-markdown::before {
-    content: "Markdown";
-}
-section pre code.language-md::before {
-    content: "Markdown";
-}
-section pre code.language-sql::before {
-    content: "SQL";
-}
-section pre code.language-rust::before {
-    content: "Rust";
-}
-section pre code.language-go::before {
-    content: "Go";
-}
-section pre code.language-ruby::before {
-    content: "Ruby";
-}
-section pre code.language-rb::before {
-    content: "Ruby";
-}
-section pre code.language-php::before {
-    content: "PHP";
-}
-section pre code.language-r::before {
-    content: "R";
+section pre:hover code[class*="language-"]::before {
+    opacity: 1;
 }
 
-/* Syntax Highlighting - Dracula Theme */
+/* Language Labels
+   -------------- */
+section pre code.language-javascript::before,
+section pre code.language-js::before { content: "JavaScript"; }
+section pre code.language-typescript::before,
+section pre code.language-ts::before { content: "TypeScript"; }
+section pre code.language-python::before,
+section pre code.language-py::before { content: "Python"; }
+section pre code.language-java::before { content: "Java"; }
+section pre code.language-cpp::before { content: "C++"; }
+section pre code.language-c::before { content: "C"; }
+section pre code.language-css::before { content: "CSS"; }
+section pre code.language-html::before { content: "HTML"; }
+section pre code.language-xml::before { content: "XML"; }
+section pre code.language-bash::before { content: "Bash"; }
+section pre code.language-sh::before { content: "Shell"; }
+section pre code.language-json::before { content: "JSON"; }
+section pre code.language-yaml::before { content: "YAML"; }
+section pre code.language-markdown::before,
+section pre code.language-md::before { content: "Markdown"; }
+section pre code.language-sql::before { content: "SQL"; }
+section pre code.language-rust::before { content: "Rust"; }
+section pre code.language-go::before { content: "Go"; }
+section pre code.language-ruby::before,
+section pre code.language-rb::before { content: "Ruby"; }
+section pre code.language-php::before { content: "PHP"; }
+section pre code.language-r::before { content: "R"; }
+section pre code.language-swift::before { content: "Swift"; }
+section pre code.language-kotlin::before { content: "Kotlin"; }
+section pre code.language-scala::before { content: "Scala"; }
+section pre code.language-dart::before { content: "Dart"; }
+
+/* Syntax Highlighting - Dracula Theme
+   --------------------------------- */
 .hljs-built_in,
 .hljs-selector-tag,
 .hljs-section,
 .hljs-link {
     color: #8be9fd;
+    font-style: italic;
 }
 
 .hljs-keyword {
     color: #ff79c6;
+    font-weight: bold;
 }
 
 .hljs-title,
@@ -155,6 +129,7 @@ section pre code.language-r::before {
 .hljs-quote,
 .hljs-deletion {
     color: #6272a4;
+    font-style: italic;
 }
 
 .hljs-literal,
@@ -178,60 +153,35 @@ section pre code.language-r::before {
     font-style: italic;
 }
 
-/* Code Blockquotes */
-section blockquote {
-    font-size: 0.8em;
-    margin: 5px 0 0 0;
-    padding-top: 5px;
-    border-top: 0.1px solid #555;
-    margin-top: 10px;
-    font-size: 50%;
-    color: var(--JAMA-foreground);
-    position: absolute;
-    bottom: 0px;
-    right: 100px;
-    left: 50px;
-    animation-name: fadeIn;
-    animation-duration: 0.5s;
-    animation-fill-mode: both;
-    animation-delay: 1s;
+/* Line Numbers
+   ----------- */
+pre ol {
+    all: unset;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    counter-reset: line-number 0;
+    padding-right: 1em;
 }
 
-blockquote::before {
-    content: "";
-    display: block;
-    font-weight: bold;
-    position: absolute;
-    color: var(--JAMA-green);
-    top: 0;
-    left: 0;
-}
-
-blockquote > *:first-child {
-    margin-top: 0;
-}
-
-blockquote > blockquote > blockquote {
-    font-size: 50%;
+pre ol li {
+    display: contents;
+    color: #f8f8f2;
     font-weight: 400;
-    padding: 0;
-    margin: 0;
-    border: 0;
-    border-top: 0.1em dashed #555;
-    position: absolute;
-    bottom: -10px;
-    left: 10px;
+    line-height: 1.5;
+    font-family: "JetBrains Mono", monospace;
+}
+
+pre ol li > span {
+    padding: 0 0.5em;
+    transition: all 0.2s ease;
 }
 
 pre ol li > span:hover {
-    font-weight: 800;
-    transition: transform 0.1s ease;
-    transform: translateX(10px);
-    /* color: var(--JAMA-green); */
+    font-weight: 600;
+    transform: translateX(0.5em);
     color: #ffb703;
-}
-pre ol li::before:hover {
-    color: #ffb703;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 0.2em;
 }
 
 pre ol li span[data-marp-line-number]::before {
@@ -239,31 +189,75 @@ pre ol li span[data-marp-line-number]::before {
     content: counter(line-number);
     counter-increment: line-number;
     text-align: right;
-    color: #595959;
-    font-weight: 800;
-    background-color: #222;
-    border-right: 5px solid #595959;
-    margin-right: 0.51em;
-    padding-right: 0.51em;
-    padding-left: 0.51em;
+    color: #6272a4;
+    font-weight: 500;
+    background: #2c2e3a;
+    border-right: 3px solid #44475a;
+    margin-right: 0.8em;
+    padding: 0 0.6em;
+    transition: all 0.2s ease;
 }
 
-/* line num in codebox  */
-pre ol {
-    all: unset;
-    display: grid;
-    grid-template-columns: auto 1fr;
-    counter-reset: line-number 0;
+pre ol li:hover span[data-marp-line-number]::before {
+    color: #8be9fd;
+    border-right-color: #6272a4;
 }
-code ol {
-    padding-right: 10em;
+
+/* Code Blockquotes
+   --------------- */
+section blockquote {
+    font-size: 0.8em;
+    margin: 1em 0 0;
+    padding: 0.8em 1em;
+    border-top: 2px solid #44475a;
+    color: var(--JAMA-foreground);
+    position: absolute;
+    bottom: 1em;
+    right: 2em;
+    left: 2em;
+    background: rgba(40, 42, 54, 0.95);
+    border-radius: 0.4em;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    animation: fadeIn 0.5s ease both;
+    animation-delay: 0.5s;
 }
-pre ol li {
-    display: contents;
-    color: #fff;
-    font-weight: 400;
-    line-height: 1.5em;
-    /* font-family: "Inter", sans-serif; */
-    /* font-family: "Overpass Mono", monospace; */
-    font-family: "JetBrains Mono", monospace;
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(1em);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+blockquote::before {
+    content: "Note";
+    display: block;
+    font-weight: bold;
+    color: var(--JAMA-green);
+    margin-bottom: 0.5em;
+    font-size: 0.9em;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+blockquote > *:first-child {
+    margin-top: 0;
+}
+
+blockquote > blockquote > blockquote {
+    font-size: 0.9em;
+    padding: 0.5em 0;
+    margin: 0.5em 0 0;
+    border-top: 1px dashed #44475a;
+    position: relative;
+    bottom: auto;
+    left: auto;
+    right: auto;
+    background: none;
+    box-shadow: none;
+    animation: none;
 }
