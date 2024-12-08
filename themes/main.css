@@ -19,4 +19,5 @@
 @import "components/_layout";
 @import "components/_markmap";
 @import "components/_images";
+@import "components/_wikilinks";
 @import "utils/_animations";

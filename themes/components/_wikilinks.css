@@ -1,0 +1,30 @@
+/* @theme components/_wikilinks */
+/* Wiki Links Styling */
+section a.wikilink {
+    display: inline-block;
+    color: #0366d6;
+    text-decoration: none;
+    border-bottom: 1px dashed #0366d6;
+    padding-bottom: 1px;
+    transition: all 0.2s ease;
+}
+
+section a.wikilink:hover {
+    color: #0056b3;
+    border-bottom: 1px solid #0056b3;
+}
+
+/* Special styling for TOC wiki link */
+section a.wikilink[href="#table-of-contents"] {
+    color: inherit;
+    border-bottom: 1px dashed currentColor;
+}
+
+/* Ensure wiki links are visible in all contexts */
+section p a.wikilink,
+section li a.wikilink,
+section td a.wikilink {
+    display: inline-block !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+}

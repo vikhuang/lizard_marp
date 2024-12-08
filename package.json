@@ -21,7 +21,6 @@
 		"@kazumatu981/markdown-it-fontawesome": "^1.0.4",
 		"@markslides/markdown-it-mermaid": "^0.1.0",
 		"@marp-team/marp-core": "^4.0.0",
-		"@stunned3961/markdown-it-wikilinks-preprocessor": "^1.0.5",
 		"@vrcd-community/markdown-it-video": "^1.1.1",
 		"cheerio": "^1.0.0-rc.12",
 		"d3": "^7.9.0",

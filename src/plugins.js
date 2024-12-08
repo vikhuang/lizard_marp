@@ -22,85 +22,102 @@ const markdownItFontawesome = require("@kazumatu981/markdown-it-fontawesome");
 const taskLists = require("markdown-it-task-lists");
 const { alertPlugin } = require("markdown-it-github-alert");
 const {
-	createContainer,
-	containerNames,
-	specialContainers,
+    createContainer,
+    containerNames,
+    specialContainers,
 } = require("./containers");
-// const mdBiblatex = require("@arothuis/markdown-it-biblatex")
 
-// 插件設定
-const markdownItAttrsOptions = {
-	leftDelimiter: "{",
-	rightDelimiter: "}",
-	allowedAttributes: [],
-};
+// Custom wiki links rule
+function customWikiLinks(md) {
+    const defaultRender = md.renderer.rules.text || function(tokens, idx, options, env, self) {
+        return self.renderToken(tokens, idx, options);
+    };
 
-const markdownItKrokiOptions = {
-	entrypoint: "https://kroki.io",
-};
+    md.renderer.rules.text = function(tokens, idx, options, env, self) {
+        const token = tokens[idx];
+        const content = token.content;
+        
+        // Match wiki link patterns
+        const wikiPattern = /\[\[(.*?)\]\]/g;
+        let match;
+        let lastIndex = 0;
+        let result = '';
 
-const markdownItVideoOptions = {
-	youtube: { width: 960, height: 540 },
-};
-
-const markdownItIncludeOptions = {
-	root: "/Users/htlin/Dropbox/slides/contents/",
-	includeRe: /\{\{(.+?)\}\}/im,
-	// processIncludePath: (path) => `${path}.md`,
-	bracesAreOptional: true,
-};
-
-const markdownItTOCOptions = {};
-
-const markdownItWikiOptions = {
-    baseURL: "",
-    uriSuffix: ".md",
-    makeAllLinksAbsolute: false,
-    htmlAttributes: {
-        class: 'wikilink'
-    },
-    generatePageNameFromLabel: true,
-    postProcessPageName: (pageName) => {
-        // Handle special case for TOC
-        if (pageName.toUpperCase() === 'TOC') {
-            return 'table-of-contents';
+        while ((match = wikiPattern.exec(content)) !== null) {
+            // Add text before the match
+            result += content.slice(lastIndex, match.index);
+            
+            // Process the wiki link
+            const linkText = match[1];
+            const [pageName, label] = linkText.split('|').reverse();
+            const displayText = label || pageName;
+            
+            // Special handling for TOC
+            if (pageName.toUpperCase() === 'TOC') {
+                result += `<a href="#table-of-contents" class="wikilink">${displayText}</a>`;
+            } else {
+                // Regular wiki link
+                const href = pageName.toLowerCase().replace(/\s+/g, '-');
+                result += `<a href="#${href}" class="wikilink">${displayText}</a>`;
+            }
+            
+            lastIndex = wikiPattern.lastIndex;
         }
-        return pageName.toLowerCase().replace(/\s+/g, '-');
-    }
-};
+        
+        // Add remaining text
+        result += content.slice(lastIndex);
+        
+        return result || defaultRender(tokens, idx, options, env, self);
+    };
+}
 
 module.exports = (instance) => {
-	instance
-		.use(alertPlugin)
-		.use(markdownItAdmon)
-		.use(markdownItPlantuml)
-		.use(markdownItFontawesome)
-		.use(markdownItAnchor)
-		.use(markdownItAttrs, markdownItAttrsOptions)
-		.use(markdownItCollapsible)
-		.use(markdownItIns)
-		.use(markdownItHashtag)
-		.use(markdownItKroki, markdownItKrokiOptions)
-		.use(markdownItMark)
-		.use(markdownItWiki, markdownItWikiOptions)
-		.use(markdownItDeflist)
-		.use(markdownItSub)
-		.use(markdownItLabel)
-		.use(markdownItRuby)
-		.use(markdownItSup)
-		.use(markdownItTOC, markdownItTOCOptions)
-		.use(markdownItInclude, markdownItIncludeOptions)
-		.use(markdownItVideo, markdownItVideoOptions)
-		.use(taskLists)
-		.use(tableMergeCells);
+    // Apply custom wiki links handler
+    instance.use(customWikiLinks);
 
-	containerNames.forEach((name) => {
-		instance.use(...createContainer(name));
-	});
-	// 加入特別容器
-	Object.keys(specialContainers).forEach((name) => {
-		instance.use(markdownItContainer, name, specialContainers[name]);
-	});
+    // Then apply other plugins
+    instance
+        .use(alertPlugin)
+        .use(markdownItAdmon)
+        .use(markdownItPlantuml)
+        .use(markdownItFontawesome)
+        .use(markdownItAnchor)
+        .use(markdownItAttrs, {
+            leftDelimiter: "{",
+            rightDelimiter: "}",
+            allowedAttributes: [],
+        })
+        .use(markdownItCollapsible)
+        .use(markdownItIns)
+        .use(markdownItHashtag)
+        .use(markdownItKroki, {
+            entrypoint: "https://kroki.io",
+        })
+        .use(markdownItMark)
+        .use(markdownItDeflist)
+        .use(markdownItSub)
+        .use(markdownItLabel)
+        .use(markdownItRuby)
+        .use(markdownItSup)
+        .use(markdownItTOC)
+        .use(markdownItInclude, {
+            root: "/Users/htlin/Dropbox/slides/contents/",
+            includeRe: /\{\{(.+?)\}\}/im,
+            bracesAreOptional: true,
+        })
+        .use(markdownItVideo, {
+            youtube: { width: 960, height: 540 },
+        })
+        .use(taskLists)
+        .use(tableMergeCells);
 
-	return instance;
+    containerNames.forEach((name) => {
+        instance.use(...createContainer(name));
+    });
+
+    Object.keys(specialContainers).forEach((name) => {
+        instance.use(markdownItContainer, name, specialContainers[name]);
+    });
+
+    return instance;
 };
