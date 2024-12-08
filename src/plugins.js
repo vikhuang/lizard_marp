@@ -5,10 +5,12 @@ const markdownItCollapsible = require("markdown-it-collapsible");
 const tableMergeCells = require("markdown-it-table-merge-cells");
 const markdownItIns = require("markdown-it-ins");
 const markdownItLabel = require("markdown-it-label");
+const markdownItWiki = require("markdown-it-wikilinks");
 const markdownItInclude = require("markdown-it-include");
 const markdownItKroki = require("@kazumatu981/markdown-it-kroki");
 const markdownItMark = require("markdown-it-mark");
 const markdownItPlantuml = require("markdown-it-plantuml");
+const markdownItDeflist = require("markdown-it-deflist");
 const markdownItSub = require("markdown-it-sub");
 const markdownItSup = require("markdown-it-sup");
 const markdownItTOC = require("markdown-it-table-of-contents");
@@ -42,13 +44,30 @@ const markdownItVideoOptions = {
 };
 
 const markdownItIncludeOptions = {
-	root: "/Users/htlin/Dropbox/slides/",
+	root: "/Users/htlin/Dropbox/slides/contents/",
 	includeRe: /\{\{(.+?)\}\}/im,
 	// processIncludePath: (path) => `${path}.md`,
 	bracesAreOptional: true,
 };
 
 const markdownItTOCOptions = {};
+
+const markdownItWikiOptions = {
+    baseURL: "",
+    uriSuffix: ".md",
+    makeAllLinksAbsolute: false,
+    htmlAttributes: {
+        class: 'wikilink'
+    },
+    generatePageNameFromLabel: true,
+    postProcessPageName: (pageName) => {
+        // Handle special case for TOC
+        if (pageName.toUpperCase() === 'TOC') {
+            return 'table-of-contents';
+        }
+        return pageName.toLowerCase().replace(/\s+/g, '-');
+    }
+};
 
 module.exports = (instance) => {
 	instance
@@ -63,6 +82,8 @@ module.exports = (instance) => {
 		.use(markdownItHashtag)
 		.use(markdownItKroki, markdownItKrokiOptions)
 		.use(markdownItMark)
+		.use(markdownItWiki, markdownItWikiOptions)
+		.use(markdownItDeflist)
 		.use(markdownItSub)
 		.use(markdownItLabel)
 		.use(markdownItRuby)

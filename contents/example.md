@@ -32,9 +32,13 @@ footer: "[■](#table-of-contents)"
 ```r
 print("hellow")
 print("hellow")
-print("")
+print("hellow")
 print("")
 ```
+
+[[test]]
+
+[[Wiki Links|here]] to learn about [[/Wiki]] links.
 
 ---
 

@@ -13,7 +13,7 @@ const cc = require("./utils/add_cc");
 // FIX: const roman = require("./utils/roman")
 
 module.exports = ({ marp }) => {
-	const instance = applyPlugins(marp);
+	const instance = marp;
 	applyLineNumber(instance);
 	addDynamicHeader(instance);
 	applyLayout(instance);
@@ -24,8 +24,8 @@ module.exports = ({ marp }) => {
 	agenda(instance);
 	copyCode(instance);
 	cc(instance);
-
 	// addZoomFeature(instance)
 	// roman(instance)
-	return instance;
+
+	return applyPlugins(instance);
 };
