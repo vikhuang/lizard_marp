@@ -90,13 +90,11 @@ section h6 strong {
     color: gray;
     padding-right: 20px;
     font-size: 0.8em;
-    position: absolute;
-    top: 30px;
 }
 
 /* Element that will animate */
 .firsth3afterh2 {
-    animation: h2ToAnnotation 0.7s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+    /* animation: h2ToAnnotation 0.7s cubic-bezier(0.25, 1, 0.5, 1) forwards; */
 }
 
 /* Animation keyframes */

@@ -19,22 +19,16 @@ footer: "[■](#table-of-contents)"
 
 # Preface
 
-# Takeaway
+# Takeaway {shortTitle="hellow is here"}
 
 ---
 
-<iframe frameborder="0" scrolling="no" style="width:100%; height:247px;" allow="clipboard-write" src="https://emgithub.com/iframe.html?target=https%3A%2F%2Fgithub.com%2Fmfussenegger%2Fnvim-lint%2Fblob%2Fmaster%2F.editorconfig&style=default&type=code&showBorder=on&showLineNumbers=on&showFileMeta=on&showFullPath=on&showCopy=on"></iframe>
-
-```r {data-marpit-fragment=4}
-print("hellow")
-print("hellow")
-print("hellow")
-print("")
-```
+<iframe frameborder="0" scrolling="no" style="width:100%; height:439px;" allow="clipboard-write" src="https://htlin-emgithub.netlify.app/iframe.html?target=https%3A%2F%2Fgithub.com%2Fhtlin222%2Femgithub%2Fblob%2Fmaster%2Fembed.js%23L1-L12&style=github&type=code&showBorder=on&showLineNumbers=on&showFileMeta=on&showFullPath=on&showCopy=on"></iframe>
 
 [[test]]
 
-[[Wiki Links|here]] to learn about [[/Wiki]] links.
+> 1. result
+> 2. result
 
 ---
 
