@@ -1,0 +1,59 @@
+/* @theme components/_menubar */
+
+section.section .menubar {
+    display: none;
+}
+
+section .menubar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: #fff;
+    /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); */
+    border-bottom: 0.1px solid var(--JAMA-blue);
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+}
+
+section .menu {
+    display: flex;
+    gap: 1em; /* 控制 li 之間的間距 */
+    margin: 0;
+    padding: 0;
+}
+
+section .menu li {
+    padding: 0.2em;
+    font-size: 0.5em;
+    color: #999 !important;
+    list-style: none;
+}
+
+section .menu li a {
+    text-decoration: none;
+}
+
+section .menu li.done a {
+    color: #999;
+}
+
+section .menu li.active a {
+    font-weight: bold;
+    padding: 0px 10px;
+    color: var(--JAMA-background) !important;
+}
+
+section .menu li.active {
+    /* height: 100%; */
+    background-color: var(--JAMA-blue);
+    font-weight: 500;
+    color: var(--JAMA-background) !important;
+    list-style-position: inside; /* 確保點顯示在文字之前 */
+    clip-path: polygon(0% 0%, 97% 0%, 100% 50%, 97% 100%, 0% 100%, 3% 50%);
+}
+
+.menu li.notyet a {
+    color: #999;
+}

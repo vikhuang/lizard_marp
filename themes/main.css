@@ -13,6 +13,7 @@
 @import "base/_typography";
 @import "components/_section";
 @import "components/_headings";
+@import "components/_menubar";
 @import "components/_tables";
 @import "components/_code";
 @import "components/_lists";

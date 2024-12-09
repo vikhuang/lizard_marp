@@ -16,7 +16,7 @@ const cc = require("./utils/add_cc");
 module.exports = ({ marp }) => {
 	const instance = marp;
 	applyLineNumber(instance);
-	addDynamicHeader(instance);
+	// addDynamicHeader(instance);
 	applyLayout(instance);
 	applySection(instance);
 	applyH2text(instance);

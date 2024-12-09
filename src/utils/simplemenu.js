@@ -11,7 +11,10 @@ module.exports = (instance) => {
 
 		$("section").each((sectionIndex, section) => {
 			if ($(section).attr("id") === "1") return;
-
+			if ($(section).attr("data-marpit-advanced-background") === "content")
+				return;
+			if ($(section).attr("data-marpit-advanced-background") === "pseudo")
+				return;
 			const currentH1 = $(section).find("h1").first();
 			if (currentH1.length > 0) {
 				lastSeenH1Index = allH1s

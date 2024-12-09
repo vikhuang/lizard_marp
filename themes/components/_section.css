@@ -128,7 +128,7 @@ section {
     /* TODO: Change Main Font Here */
     line-height: 1.15;
     /* letter-spacing: 0.4px; */
-    padding: 50px 35px;
+    padding: 45px 35px;
     color: var(--JAMA-foreground);
     background-color: var(--JAMA-background);
     /* border-left: 10px solid; */
@@ -162,7 +162,7 @@ section code {
 section > p {
     transition: transform 0.2s ease;
 }
-section a {
+section > a {
     text-decoration: none;
     font-weight: 700;
     background: -webkit-linear-gradient(right, #6c9a77, #2d696a);
@@ -272,8 +272,9 @@ section.section ol {
     transform: translate(-50%, -50%); /* 修正偏移 */
 }
 section.section li.before {
-    opacity: 0.2; /* 降低透明度 */
-    text-decoration: line-through; /* 加刪除線 */
+    opacity: 0.1; /* 降低透明度 */
+    filter: blur(0.6px);
+    /* text-decoration: line-through;  */
 }
 
 section.section li.current {

@@ -21,9 +21,11 @@ section h2 {
 
 section h3 {
     font-size: 1.5em;
+    /* white-space: nowrap;  */
     font-weight: 700;
     color: var(--JAMA-blue);
     column-span: all;
+    padding-top: 5px;
 }
 
 section h4 {
@@ -114,56 +116,4 @@ section h6 strong {
         position: absolute;
         top: 30px;
     }
-}
-
-section.section .menubar {
-    display: none;
-}
-
-.menubar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    background: #fff;
-    /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); */
-    border-bottom: 0.1px solid var(--JAMA-blue);
-    z-index: 1000;
-    display: flex;
-    justify-content: center;
-}
-
-.menu {
-    display: flex;
-    gap: 1em; /* 控制 li 之間的間距 */
-    list-style: none;
-    margin: 0;
-    padding: 0;
-}
-
-.menu li {
-    padding: 0.2em;
-    font-size: 0.5em;
-    color: #999 !important;
-}
-
-.menu li a {
-    color: #333;
-    text-decoration: none;
-}
-
-.menu li.active a {
-    font-weight: bold;
-}
-
-.menu li.done a {
-    color: #999 !important;
-}
-
-.menu li.active a {
-    font-weight: bold;
-}
-
-.menu li.notyet a {
-    color: #999 !important;
 }
