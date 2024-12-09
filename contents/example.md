@@ -21,13 +21,9 @@ footer: "[■](#table-of-contents)"
 
 # Takeaway
 
-## hellow
+---
 
-* hellow
-  * hellow
-
-* hellow
-  * hellow
+<iframe frameborder="0" scrolling="no" style="width:100%; height:247px;" allow="clipboard-write" src="https://emgithub.com/iframe.html?target=https%3A%2F%2Fgithub.com%2Fmfussenegger%2Fnvim-lint%2Fblob%2Fmaster%2F.editorconfig&style=default&type=code&showBorder=on&showLineNumbers=on&showFileMeta=on&showFullPath=on&showCopy=on"></iframe>
 
 ```r {data-marpit-fragment=4}
 print("hellow")

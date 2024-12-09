@@ -174,14 +174,24 @@ pre ol li {
 pre ol li > span {
     padding: 0 0.5em;
     transition: all 0.2s ease;
+    position: relative;
 }
 
 pre ol li > span:hover {
     font-weight: 600;
-    transform: translateX(0.5em);
     color: #ffb703;
+}
+
+pre ol li > span:hover::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
     background: rgba(255, 255, 255, 0.1);
     border-radius: 0.2em;
+    pointer-events: none;
 }
 
 pre ol li span[data-marp-line-number]::before {
