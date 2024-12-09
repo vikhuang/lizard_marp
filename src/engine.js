@@ -4,6 +4,7 @@ const applyLineNumber = require("./utils/lineNumber");
 const applySection = require("./utils/section");
 const applyDate = require("./utils/date");
 const applyLayout = require("./utils/layout");
+const simpleMenu = require("./utils/simplemenu");
 const applyH2text = require("./utils/addh2text.js");
 const nexth3 = require("./utils/nexth3.js");
 const copyCode = require("./utils/copy_code");
@@ -22,6 +23,7 @@ module.exports = ({ marp }) => {
 	applyDate(instance);
 	// nexth3(instance);
 	agenda(instance);
+	simpleMenu(instance);
 	copyCode(instance);
 	cc(instance);
 	// addZoomFeature(instance)

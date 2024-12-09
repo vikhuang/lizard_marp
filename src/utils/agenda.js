@@ -10,25 +10,25 @@ module.exports = (instance) => {
 		const firstH1Content = $("h1").first().text() || "Default Title";
 
 		$("h1").each(function (index) {
-			const ul = $("<ul></ul>");
+			const ol = $("<ol></ol>");
 
-			// 在 <ul> 中添加除了第一個以外的所有標題
+			// 在 <ol> 中添加除了第一個以外的所有標題
 			$("h1").each(function (i) {
 				const title = $(this).text();
 				if (i > 0) {
 					if (i < index) {
-						ul.append(`<li class="before">${title}</li>`);
+						ol.append(`<li class="before">${title}</li>`);
 					} else if (i === index) {
-						ul.append(`<li class="current">${title}</li>`);
+						ol.append(`<li class="current">${title}</li>`);
 					} else {
-						ul.append(`<li class="after">${title}</li>`);
+						ol.append(`<li class="after">${title}</li>`);
 					}
 				}
 			});
 
-			// 在當前的 <h1> 之後插入這個 <ul>
+			// 在當前的 <h1> 之後插入這個 <ol>
 			if (index > 0) {
-				$(this).after(ul);
+				$(this).after(ol);
 			}
 			// 在每個 <h1> 後插入 <header class="title_as_header">
 
@@ -36,9 +36,9 @@ module.exports = (instance) => {
 				`<footer class="title_as_footer">${firstH1Content}</footer>`,
 			);
 
-			// 確保 <header> 放在 <ul> 後
+			// 確保 <header> 放在 <ol> 後
 			if (index > 0) {
-				ul.after(footer);
+				ol.after(footer);
 			}
 		});
 

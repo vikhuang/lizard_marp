@@ -262,35 +262,35 @@ section.section::after {
     color: var(--JAMA-background);
 }
 
-section.section ul {
+section.section ol {
     position: relative;
+    list-style-type: upper-roman;
+    padding-left: 3em;
     top: 40%;
     left: 50%;
+    line-height: 1.5em;
     transform: translate(-50%, -50%); /* 修正偏移 */
 }
 section.section li.before {
     opacity: 0.2; /* 降低透明度 */
-    font-size: 0.7em; /* 保持正常字體大小 */
     text-decoration: line-through; /* 加刪除線 */
 }
 
 section.section li.current {
-    font-size: 1.2em; /* 增加字體大小 */
-    font-weight: 900;
-    list-style-type: none;
+    font-weight: 700;
+    /* list-style-type: none; */
     position: relative;
-    margin-top: 24px !important; /* 設置頂部邊距，強制優先 */
-    margin-bottom: 24px !important; /* 設置底部邊距，強制優先 */
+    /* margin-top: 24px !important;  */
+    /* margin-bottom: 24px !important;  */
     /* text-shadow: 8px 8px 15px rgba(0, 0, 0, 1.8); */
 }
 
 section.section li.after {
     opacity: 0.2;
-    font-size: 0.7em; /* 保持正常字體大小 */
 }
 section.section li.after::marker {
     opacity: 1 !important; /* 降低透明度 */
-    color: #ffb703;
+    /* color: #ffb703; */
 }
 
 section.section {
@@ -385,4 +385,3 @@ section.free div {
     opacity: 1;
     transform: translateY(0);
 }
-

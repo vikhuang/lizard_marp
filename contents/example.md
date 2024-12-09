@@ -19,7 +19,7 @@ footer: "[■](#table-of-contents)"
 
 # Preface
 
-# Takeaway {shortTitle="hellow is here"}
+# Takeaway {data-sm="hellow is here"}
 
 ---
 
