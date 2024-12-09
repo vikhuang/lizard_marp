@@ -10,7 +10,7 @@ section pre {
     padding: 0;
     position: relative;
     border-radius: 0.5em;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    /* box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15); */
 }
 
 /* Code Content
@@ -273,11 +273,6 @@ section blockquote {
     bottom: 1em;
     right: 2em;
     left: 2em;
-    background: rgba(40, 42, 54, 0.95);
-    border-radius: 0.4em;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-    animation: fadeIn 0.5s ease both;
-    animation-delay: 0.5s;
 }
 
 @keyframes fadeIn {
@@ -291,31 +286,44 @@ section blockquote {
     }
 }
 
-blockquote::before {
-    content: "Note";
+section blockquote {
+    font-size: 10px !important;
+    margin: 5px 0 0 0;
+    padding-top: 5px;
+    border-top: 0.1px solid #555;
+    margin-top: 10px;
+    color: var(--JAMA-foreground);
+    /* background: var(--JAMA-background); */
+    position: absolute;
+    bottom: 0px;
+    right: 100px;
+    left: 50px;
+}
+section blockquote::before {
+    content: "";
     display: block;
     font-weight: bold;
+    position: absolute;
     color: var(--JAMA-green);
-    margin-bottom: 0.5em;
-    font-size: 0.9em;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
+    top: 0;
+    left: 0;
 }
-
-blockquote > *:first-child {
+section blockquote > *:first-child {
     margin-top: 0;
 }
+section blockquote > blockquote > blockquote {
+    font-size: 50%;
+    font-weight: 400;
+    padding: 0;
+    margin: 0;
+    border: 0;
+    border-top: 0.1em dashed #555;
+    position: absolute;
+    bottom: -10px;
+    left: 10px;
+}
 
-blockquote > blockquote > blockquote {
-    font-size: 0.9em;
-    padding: 0.5em 0;
-    margin: 0.5em 0 0;
-    border-top: 1px dashed #44475a;
-    position: relative;
-    bottom: auto;
-    left: auto;
-    right: auto;
-    background: none;
-    box-shadow: none;
-    animation: none;
+section blockquote::before,
+section blockquote::after {
+    color: var(--JAMA-comment);
 }
