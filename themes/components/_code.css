@@ -10,6 +10,7 @@ section pre {
     padding: 0;
     position: relative;
     border-radius: 0.5em;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
 }
 
 /* Code Content
@@ -29,7 +30,6 @@ section pre code {
     font-family: "JetBrains Mono", "Fira Code", monospace;
     border-radius: 0.5em;
     transition: all 0.3s ease;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
 }
 
 /* SVG Fitting
@@ -62,34 +62,82 @@ section pre:hover code[class*="language-"]::before {
 /* Language Labels
    -------------- */
 section pre code.language-javascript::before,
-section pre code.language-js::before { content: "JavaScript"; }
+section pre code.language-js::before {
+    content: "JavaScript";
+}
 section pre code.language-typescript::before,
-section pre code.language-ts::before { content: "TypeScript"; }
+section pre code.language-ts::before {
+    content: "TypeScript";
+}
 section pre code.language-python::before,
-section pre code.language-py::before { content: "Python"; }
-section pre code.language-java::before { content: "Java"; }
-section pre code.language-cpp::before { content: "C++"; }
-section pre code.language-c::before { content: "C"; }
-section pre code.language-css::before { content: "CSS"; }
-section pre code.language-html::before { content: "HTML"; }
-section pre code.language-xml::before { content: "XML"; }
-section pre code.language-bash::before { content: "Bash"; }
-section pre code.language-sh::before { content: "Shell"; }
-section pre code.language-json::before { content: "JSON"; }
-section pre code.language-yaml::before { content: "YAML"; }
+section pre code.language-py::before {
+    content: "Python";
+}
+section pre code.language-java::before {
+    content: "Java";
+}
+section pre code.language-cpp::before {
+    content: "C++";
+}
+section pre code.language-c::before {
+    content: "C";
+}
+section pre code.language-css::before {
+    content: "CSS";
+}
+section pre code.language-html::before {
+    content: "HTML";
+}
+section pre code.language-xml::before {
+    content: "XML";
+}
+section pre code.language-bash::before {
+    content: "Bash";
+}
+section pre code.language-sh::before {
+    content: "Shell";
+}
+section pre code.language-json::before {
+    content: "JSON";
+}
+section pre code.language-yaml::before {
+    content: "YAML";
+}
 section pre code.language-markdown::before,
-section pre code.language-md::before { content: "Markdown"; }
-section pre code.language-sql::before { content: "SQL"; }
-section pre code.language-rust::before { content: "Rust"; }
-section pre code.language-go::before { content: "Go"; }
+section pre code.language-md::before {
+    content: "Markdown";
+}
+section pre code.language-sql::before {
+    content: "SQL";
+}
+section pre code.language-rust::before {
+    content: "Rust";
+}
+section pre code.language-go::before {
+    content: "Go";
+}
 section pre code.language-ruby::before,
-section pre code.language-rb::before { content: "Ruby"; }
-section pre code.language-php::before { content: "PHP"; }
-section pre code.language-r::before { content: "R"; }
-section pre code.language-swift::before { content: "Swift"; }
-section pre code.language-kotlin::before { content: "Kotlin"; }
-section pre code.language-scala::before { content: "Scala"; }
-section pre code.language-dart::before { content: "Dart"; }
+section pre code.language-rb::before {
+    content: "Ruby";
+}
+section pre code.language-php::before {
+    content: "PHP";
+}
+section pre code.language-r::before {
+    content: "R";
+}
+section pre code.language-swift::before {
+    content: "Swift";
+}
+section pre code.language-kotlin::before {
+    content: "Kotlin";
+}
+section pre code.language-scala::before {
+    content: "Scala";
+}
+section pre code.language-dart::before {
+    content: "Dart";
+}
 
 /* Syntax Highlighting - Dracula Theme
    --------------------------------- */
@@ -183,7 +231,7 @@ pre ol li > span:hover {
 }
 
 pre ol li > span:hover::after {
-    content: '';
+    content: "";
     position: absolute;
     left: 0;
     top: 0;
