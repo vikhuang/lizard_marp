@@ -30,7 +30,6 @@ section h3 {
 
 section h4 {
     font-weight: 500;
-    color: var(--JAMA-foreground);
     break-before: column;
     font-size: 1.2em;
     color: var(--JAMA-blue);

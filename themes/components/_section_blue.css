@@ -1,0 +1,58 @@
+/* @theme components/_section_blue */
+
+section.blue > h1 {
+    display: none;
+}
+section.blue > h2,
+section.blue > h3,
+section.blue > h4,
+section.blue > h5,
+section.blue > h6,
+section.blue > footer,
+section.blue li,
+section.blue li::marker,
+section.blue::after {
+    color: var(--JAMA-background);
+}
+
+section.blue ol {
+    position: relative;
+    list-style-type: upper-roman;
+    padding-left: 3em;
+    top: 40%;
+    left: 50%;
+    line-height: 1.5em;
+    transform: translate(-50%, -50%); /* 修正偏移 */
+}
+section.blue li.before {
+    opacity: 0.1; /* 降低透明度 */
+    filter: blur(0.6px);
+    /* text-decoration: line-through;  */
+}
+
+section.blue li.current {
+    font-weight: 700;
+    /* list-style-type: none; */
+    position: relative;
+    /* margin-top: 24px !important;  */
+    /* margin-bottom: 24px !important;  */
+    text-shadow: 0px 18px 25px rgba(0, 0, 0, 0.5);
+}
+
+section.blue li.after {
+    opacity: 0.2;
+}
+section.blue li.after::marker {
+    opacity: 1 !important; /* 降低透明度 */
+    /* color: #ffb703; */
+}
+
+section.blue {
+    background-color: var(--JAMA-blue);
+    color: var(--JAMA-background);
+    font-size: 36px;
+}
+
+section.blue header {
+    display: none;
+}

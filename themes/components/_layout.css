@@ -448,11 +448,15 @@ p.admonition-title::before {
 }
 
 .markdown-alert {
-    padding: 1em;
-    border-left: 0.3rem solid;
+    display: flex;
+    gap: 2rem;
+    padding: 0.5em;
+    border-left: 0.2rem solid;
     padding-bottom: 0px;
     padding-top: 0px;
     border-color: var(--border-color);
+    background-color: #f1f1f1;
+    line-height: 0.5em;
 }
 
 .markdown-alert > span {
@@ -460,6 +464,9 @@ p.admonition-title::before {
     flex-direction: row;
     align-items: center;
     color: var(--border-color);
+    /* padding-right: 0.6em; */
+    /* border-right: 0.2rem solid; */
+    /* border-color: var(--border-color); */
 }
 
 .markdown-alert .markdown-alert-icon {
@@ -715,4 +722,67 @@ g {
 
 .c4 {
     column-count: 4; /* 設定為兩欄 */
+}
+
+section.timeline > ul {
+    display: flex; /* 使用 flex 排列 */
+    gap: 10px; /* 項目間距 */
+    margin-top: 255px;
+    line-height: 2.5em;
+    border-top: 1px solid #999; /* 可根據需求調整邊框顏色與粗細 */
+    margin: 0; /* 根據需要調整外邊距 */
+    /* list-style: none; */
+}
+
+section.timeline > ul > li {
+    padding-top: 20px;
+    border-left: 1px dashed #999; /* 可根據需求調整邊框顏色與粗細 */
+    padding-left: 20px;
+    list-style: none;
+    break-before: column;
+}
+
+section.timeline h2 {
+    padding-bottom: 1em;
+}
+
+section.timeline mark {
+    font-weight: 500;
+    font-size: 1.2em;
+    color: var(--JAMA-blue);
+}
+/* flexList */
+
+section.flexList h2 {
+    padding-bottom: 1em;
+}
+
+section.flexList > ul {
+    display: flex; /* 使用 flex 排列 */
+    gap: 10px; /* 項目間距 */
+    margin-top: 255px;
+    line-height: 2.5em;
+}
+
+section.flexList > ul > li {
+    padding-top: 20px;
+    padding-left: 20px;
+    break-before: column;
+}
+
+section.flexList mark {
+    font-weight: 500;
+    font-size: 1.2em;
+    color: var(--JAMA-blue);
+}
+
+.flexImg > ul {
+    /* no need section.flexImg */
+    flex-direction: row; /* 橫向排列 */
+    padding: 0; /* 避免預設內邊距影響布局 */
+    list-style: none; /* 移除項目符號 */
+    display: flex; /* 使用 flex 排列 */
+    gap: 40px; /* 項目間距 */
+    line-height: 2.5em;
+    justify-content: center;
 }
