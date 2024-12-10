@@ -6,6 +6,8 @@
 		"theme": "./themes/main.css",
 		"allowLocalFiles": true,
 		"ignore": "./node_modules/",
+		"browser": "chrome",
+		"browserPath": "/Applications/Google\\ Chrome.app/Contents/MacOS/Google\\ Chrome",
 		"pdfNotes": true,
 		"pdfOutlines": {
 			"pages": false,

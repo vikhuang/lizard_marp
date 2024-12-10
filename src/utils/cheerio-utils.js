@@ -1,6 +1,5 @@
 const cheerio = require("cheerio");
 
-// 建立一個共用的 cheerio 實例
 class CheerioWrapper {
     constructor() {
         this.cheerio = cheerio;
@@ -11,7 +10,7 @@ class CheerioWrapper {
         return cheerio.load(html);
     }
 
-    // 建立 Marp 插件
+    // 建立基本的 Marp 插件
     createPlugin(renderLogic) {
         return (instance) => {
             const originalRender = instance.render.bind(instance);
@@ -20,7 +19,30 @@ class CheerioWrapper {
                 const $ = cheerio.load(result.html);
                 
                 // 執行傳入的渲染邏輯
-                renderLogic($, result);
+                renderLogic($, result, markdown, options);
+                
+                result.html = $.html();
+                return result;
+            };
+        };
+    }
+
+    // 建立複合插件（支持 markdown-it 和 cheerio）
+    createComplexPlugin(mdPlugin, renderLogic) {
+        return (instance) => {
+            // 先應用 markdown-it 插件
+            if (mdPlugin) {
+                instance.use(mdPlugin);
+            }
+
+            // 再應用 cheerio 渲染邏輯
+            const originalRender = instance.render.bind(instance);
+            instance.render = function(markdown, options = {}) {
+                const result = originalRender(markdown, options);
+                const $ = cheerio.load(result.html);
+                
+                // 執行傳入的渲染邏輯
+                renderLogic($, result, markdown, options);
                 
                 result.html = $.html();
                 return result;
