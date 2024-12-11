@@ -1,5 +1,15 @@
 /* @theme components/_layout */
 
+img.left {
+    display: block;
+    margin: 0;
+}
+
+img {
+    display: inline-block;
+    margin: 0 auto;
+}
+
 .outline li {
     font-size: 1.2em;
     font-weight: 700;
@@ -251,7 +261,7 @@ even h2 {
 .half {
     display: flex;
     justify-content: center;
-    align-items: left;
+    align-items: center;
     gap: 1rem;
 }
 
@@ -445,57 +455,6 @@ p.admonition-title::before {
 .table-of-contents {
     overflow-y: scroll;
     height: 580px;
-}
-
-.markdown-alert {
-    display: flex;
-    gap: 2rem;
-    padding: 0.5em;
-    border-left: 0.2rem solid;
-    padding-bottom: 0px;
-    padding-top: 0px;
-    border-color: var(--border-color);
-    background-color: #f1f1f1;
-    line-height: 0.5em;
-}
-
-.markdown-alert > span {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    color: var(--border-color);
-    /* padding-right: 0.6em; */
-    /* border-right: 0.2rem solid; */
-    /* border-color: var(--border-color); */
-}
-
-.markdown-alert .markdown-alert-icon {
-    margin-right: 0.5em;
-    fill: var(--border-color);
-}
-
-.markdown-alert.note {
-    --border-color: #539bf5;
-}
-
-.markdown-alert.warning {
-    --border-color: #c69026;
-}
-
-.markdown-alert.important {
-    --border-color: #986ee2;
-}
-
-.markdown-alert.caution {
-    --border-color: #e5534b;
-}
-
-.markdown-alert.tip {
-    --border-color: #57ab5a;
-}
-
-.task-list-item-checkbox {
-    transform: scale(1.5);
 }
 
 .box {
@@ -724,7 +683,7 @@ g {
     column-count: 4; /* 設定為兩欄 */
 }
 
-section.timeline > ul {
+section.timeline > ul:first-of-type {
     display: flex; /* 使用 flex 排列 */
     gap: 10px; /* 項目間距 */
     margin-top: 255px;
@@ -743,7 +702,7 @@ section.timeline > ul > li {
 }
 
 section.timeline h2 {
-    padding-bottom: 1em;
+    padding-bottom: 0.8em;
 }
 
 section.timeline mark {

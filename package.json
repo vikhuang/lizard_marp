@@ -14,7 +14,8 @@
 			"headings": true
 		},
 		"bespoke": {
-			"progress": true
+			"progress": true,
+			"transition": "fade"
 		}
 	},
 	"dependencies": {

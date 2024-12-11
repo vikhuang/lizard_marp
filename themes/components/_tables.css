@@ -7,8 +7,9 @@ section table {
     /* border-color: var(--JAMA-background); */
     border-radius: 2px; /* sets the border radius */
     overflow: hidden; /* hides the overflow from the rounded corners */
-    margin: 1em 0 0 0;
+    margin: 2em 0 0 0;
     transition: transform 0.3s ease;
+    margin: 0 auto;
 }
 
 section table th,

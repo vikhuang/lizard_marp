@@ -41,3 +41,56 @@ kbd:active {
         -0.025em -0.05em 0.025em rgba(255, 255, 255, 0.8) inset; /* 仿照按鈕的按下效果 */
     transform: translateY(5px); /* 輕微下移以模擬按鍵被按下 */
 }
+
+.markdown-alert {
+    display: flex;
+    gap: 2rem;
+    padding: 0.5em;
+    border-left: 0.2rem solid;
+    padding-bottom: 0px;
+    padding-top: 0px;
+    border-color: var(--border-color);
+    background-color: #f1f1f1;
+}
+.markdown-alert > p {
+    line-height: 1em;
+}
+
+.markdown-alert > span {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    color: var(--border-color);
+    /* padding-right: 0.6em; */
+    /* border-right: 0.2rem solid; */
+    /* border-color: var(--border-color); */
+}
+
+.markdown-alert .markdown-alert-icon {
+    margin-right: 0.5em;
+    fill: var(--border-color);
+}
+
+.markdown-alert.note {
+    --border-color: #539bf5;
+}
+
+.markdown-alert.warning {
+    --border-color: #c69026;
+}
+
+.markdown-alert.important {
+    --border-color: #986ee2;
+}
+
+.markdown-alert.caution {
+    --border-color: #e5534b;
+}
+
+.markdown-alert.tip {
+    --border-color: #57ab5a;
+}
+
+.task-list-item-checkbox {
+    transform: scale(1.5);
+}
