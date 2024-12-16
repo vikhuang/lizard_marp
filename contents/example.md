@@ -19,6 +19,17 @@ footer: "[■](#table-of-contents)"
 
 # Preface
 
+## Grid List
+
+<!-- _class: flex img -->
+
+- ![h:350px](https://i.imgur.com/sfQ3GZU.png)
+  - hellow
+- ![h:350px](https://i.imgur.com/sfQ3GZU.png)
+  - hellow
+
+happy
+
 # Takeaway {data-sm="hellow is here"}
 
 ---
@@ -32,17 +43,17 @@ footer: "[■](#table-of-contents)"
 
 ---
 
-## <!--fit-->Thanks
+## Thanks
+
+<!-- _class: center -->
 
 <hr>
 
-##### <!--fit-->example
+##### example
 
 <hr>
 
-#### <!--fit-->Let’s Take Some <br>Questions
-
-![bg right:50% h:450px](https://i.imgur.com/DzOMiaW.png)
+#### Let’s Take Some <br>Questions
 
 <!-- ![bg right:50% h:250px](https://i.imgur.com/ZxXHT4V.png) -->
 

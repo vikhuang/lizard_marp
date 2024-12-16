@@ -334,9 +334,10 @@ hr {
 }
 .centered-content {
     display: flex;
-    flex-direction: column;
     justify-content: center;
-    height: 600px; /* 設置一個合適的高度 */
+    align-items: center;
+    text-align: center;
+    height: 100%; /* 或指定具體高度 */
 }
 a {
     color: var(--JAMA-cyan);
@@ -716,16 +717,19 @@ section.flexList h2 {
     padding-bottom: 1em;
 }
 
+section.flexImg > ul,
 section.flexList > ul {
     display: flex; /* 使用 flex 排列 */
-    gap: 10px; /* 項目間距 */
-    margin-top: 255px;
+    flex-direction: row; /* 橫向排列 */
+    gap: 20px; /* 項目間距 */
+    padding: 0px;
     line-height: 2.5em;
+    justify-content: space-evenly;
+    position: relative; /* 為後續定位設置基準 */
 }
 
 section.flexList > ul > li {
-    padding-top: 20px;
-    padding-left: 20px;
+    flex-grow: 1; /* 確保項目之間空間動態分配 */
     break-before: column;
 }
 
@@ -735,13 +739,12 @@ section.flexList mark {
     color: var(--JAMA-blue);
 }
 
-.flexImg > ul {
-    /* no need section.flexImg */
-    flex-direction: row; /* 橫向排列 */
-    padding: 0; /* 避免預設內邊距影響布局 */
+section.flexImg > ul {
     list-style: none; /* 移除項目符號 */
-    display: flex; /* 使用 flex 排列 */
-    gap: 40px; /* 項目間距 */
-    line-height: 2.5em;
-    justify-content: center;
+}
+
+section.flexImg > ul > li img {
+    max-width: 100%; /* 確保圖片不超出 li */
+    max-height: 100%; /* 防止圖片過高 */
+    object-fit: contain; /* 保持圖片比例 */
 }

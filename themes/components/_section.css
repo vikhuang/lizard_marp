@@ -1,4 +1,23 @@
 /* @theme components/_section */
+
+section {
+    font-size: 22px;
+    font-weight: 500;
+    /* font-family: "Open Sans", sans-serif; */
+    font-family: "Inter", sans-serif;
+    /* font-family: "Fira Sans", sans-serif; */
+    /* TODO: Change Main Font Here */
+    line-height: 1.15;
+    /* letter-spacing: 0.4px; */
+    padding: 35px 35px;
+    color: var(--JAMA-foreground);
+    background-color: var(--JAMA-background);
+    /* border-left: 10px solid; */
+    border-bottom: 10px solid;
+    border-image: linear-gradient(to bottom, #6c9a77, #2d696a);
+    border-image-slice: 1;
+}
+
 section ul {
     line-height: 1.5;
 }
@@ -84,23 +103,6 @@ section.scroll > ul {
     font-size: 1em;
 }
 
-section {
-    font-size: 22px;
-    font-weight: 500;
-    /* font-family: "Open Sans", sans-serif; */
-    font-family: "Inter", sans-serif;
-    /* font-family: "Fira Sans", sans-serif; */
-    /* TODO: Change Main Font Here */
-    line-height: 1.15;
-    /* letter-spacing: 0.4px; */
-    padding: 45px 35px;
-    color: var(--JAMA-foreground);
-    background-color: var(--JAMA-background);
-    /* border-left: 10px solid; */
-    border-bottom: 10px solid;
-    border-image: linear-gradient(to bottom, #6c9a77, #2d696a);
-    border-image-slice: 1;
-}
 section > *:first-child,
 section > header:first-child + * {
     margin-top: 0;
@@ -233,9 +235,14 @@ section.two {
 }
 
 /* fit h1 */
+section.center h5,
+section.center h4,
+section.center h3,
+section.center h2,
 section.center h1 {
     text-align: center;
-    justify-content: center;
+    justify-content: center !important;
+    max-width: 100%;
 }
 /* THREE colomn style */
 section.three {

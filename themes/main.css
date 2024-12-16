@@ -6,6 +6,8 @@
  * @auto-scaling true
  * @size 4:3 960px 720px
  * @size 16:9 1280px 720px
+ * @size 21:9 1680px 720px
+ * @size 32:9 2560px 720px
  */
 
 @import "base/_variables";
