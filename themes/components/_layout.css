@@ -456,6 +456,10 @@ p.admonition-title::before {
 .table-of-contents {
     overflow-y: scroll;
     height: 580px;
+    font-size: 12px;
+    columns: 2; /* 將內容分成兩欄 */
+    column-gap: 10px; /* 欄間距 */
+    list-style-type: disc; /* 預設項目符號 */
 }
 
 .box {
