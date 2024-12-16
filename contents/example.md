@@ -21,7 +21,7 @@ footer: "[■](#table-of-contents)"
 
 ## Grid List
 
-<!-- _class: flex img -->
+<!-- _class: flexImg -->
 
 - ![h:350px](https://i.imgur.com/sfQ3GZU.png)
   - hellow
@@ -29,6 +29,8 @@ footer: "[■](#table-of-contents)"
   - hellow
 
 happy
+
+[happy](#preface)
 
 # Takeaway {data-sm="hellow is here"}
 

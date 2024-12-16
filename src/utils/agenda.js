@@ -7,16 +7,20 @@ module.exports = cheerioWrapper.createPlugin(($, result) => {
 	$("h1").each(function (index) {
 		const ol = $("<ol class='agenda'></ol>");
 
-		// 在 <ol> 中添加除了第一個以外的所有標題
 		$("h1").each(function (i) {
 			const title = $(this).text();
+			const id = $(this).attr("id"); // 獲取 h1 的 id，如果沒有可以自己生成
+			if (!id) {
+				$(this).attr("id", `heading-${i}`); // 如果沒有 id，給每個 h1 加一個
+			}
+			const href = `#${id}`; // 生成 href 鏈接
 			if (i > 0) {
 				if (i < index) {
-					ol.append(`<li class="before">${title}</li>`);
+					ol.append(`<li class="before"><a href="${href}">${title}</a></li>`);
 				} else if (i === index) {
-					ol.append(`<li class="current">${title}</li>`);
+					ol.append(`<li class="current"><a href="${href}">${title}</a></li>`);
 				} else {
-					ol.append(`<li class="after">${title}</li>`);
+					ol.append(`<li class="after"><a href="${href}">${title}</a></li>`);
 				}
 			}
 		});
