@@ -34,49 +34,51 @@ module.exports = cheerioWrapper.createPlugin(($, result) => {
 	});
 });
 
-// Helper function to create a branch from a li element
 function createBranch($, $li, currentDepth) {
 	const $branch = $('<div class="branch"></div>');
 	const $nodeGroup = $('<div class="node-group"></div>');
 
-	// Get text content, handling potential HTML entities and mixed content
-	const nodeText = $li
+	// 保留文本內容與指定標籤 (<br>, <hr>, <strong>)
+	const nodeContent = $li
 		.contents()
-		.filter(function () {
-			return this.type === "text";
+		.map(function () {
+			if (this.type === "text") {
+				return this.nodeValue.trim();
+			} else if (this.tagName && /^(BR|HR|STRONG)$/i.test(this.tagName)) {
+				return $(this).clone(); // 複製保留指定標籤
+			}
 		})
-		.first()
-		.text()
-		.trim();
+		.toArray();
 
-	const $node = $('<div class="node"></div>').text(nodeText);
+	const $node = $('<div class="node"></div>').append(nodeContent);
 	$nodeGroup.append($node);
 
 	let maxChildDepth = currentDepth;
 
-	// If there are children (nested ul), process them
+	// 處理子項目 (nested ul)
 	const $subUl = $li.children("ul");
 	if ($subUl.length) {
 		const $children = $('<div class="children"></div>');
 
 		$subUl.children("li").each(function () {
 			const $childLi = $(this);
-			// If this child has its own children, create a new branch
 			if ($childLi.children("ul").length) {
 				const childResult = createBranch($, $childLi, currentDepth + 1);
-				$children.append(childResult.element.children()); // We want the node-group, not another branch
+				$children.append(childResult.element.children());
 				maxChildDepth = Math.max(maxChildDepth, childResult.depth);
 			} else {
-				// Otherwise just create a node
-				const childText = $childLi
+				const childContent = $childLi
 					.contents()
-					.filter(function () {
-						return this.type === "text";
+					.map(function () {
+						if (this.type === "text") {
+							return this.nodeValue.trim();
+						} else if (this.tagName && /^(BR|HR|STRONG)$/i.test(this.tagName)) {
+							return $(this).clone();
+						}
 					})
-					.first()
-					.text()
-					.trim();
-				const $childNode = $('<div class="node"></div>').text(childText);
+					.toArray();
+
+				const $childNode = $('<div class="node"></div>').append(childContent);
 				$children.append($childNode);
 			}
 		});
