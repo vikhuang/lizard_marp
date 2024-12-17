@@ -200,14 +200,16 @@ section.noheader header {
     display: none;
 }
 
-section::after {
-    animation-name: slideInRight;
-    animation-duration: 1s;
-    animation-fill-mode: both;
-    animation-timing-function: cubic-bezier(0.6, 0.05, 0.4, 0.95);
-    content: attr(data-marpit-pagination) " / "
-        attr(data-marpit-pagination-total);
-}
+/* Page Number Animation */
+
+/* section::after { */
+/*     animation-name: slideInRight; */
+/*     animation-duration: 1s; */
+/*     animation-fill-mode: both; */
+/*     animation-timing-function: cubic-bezier(0.6, 0.05, 0.4, 0.95); */
+/*     content: attr(data-marpit-pagination) " / " */
+/*         attr(data-marpit-pagination-total); */
+/* } */
 
 section.medium {
     font-size: 36px;

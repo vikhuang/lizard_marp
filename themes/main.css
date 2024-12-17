@@ -14,6 +14,7 @@
 /* @import "base/_hljs"; */
 @import "base/_typography";
 @import "components/_section";
+@import "components/_diagram";
 @import "components/_section_blue";
 @import "components/_headings";
 @import "components/_menubar";

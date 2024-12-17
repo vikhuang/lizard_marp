@@ -19,6 +19,24 @@ footer: "[■](#table-of-contents)"
 
 # Preface
 
+## Diagram
+
+<!-- _class: diagram -->
+
+- A (level 1)
+  - A1 (level 2)
+    - A2 (level 2)
+  - A3 (level 2)
+- B (level 1)
+  - B1 (level 2)
+  - B2 (level 2)
+    - B2.1
+      - B2.2
+      - B2.2
+      - B2.2
+      - B2.2 hellow
+  - B3 (level 2)
+
 ## Grid List
 
 <!-- _class: flexImg -->

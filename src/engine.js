@@ -4,6 +4,7 @@ const applyLineNumber = require("./utils/lineNumber");
 const addClassPerRule = require("./utils/add_class_per_rule");
 const applyDate = require("./utils/date");
 const applyLayout = require("./utils/layout");
+const applyDiagram = require("./utils/diagram");
 const simpleMenu = require("./utils/simplemenu");
 const applyH2text = require("./utils/addh2text.js");
 const nexth3 = require("./utils/nexth3.js");
@@ -23,6 +24,7 @@ module.exports = ({ marp }) => {
 	applyDate(instance);
 	// nexth3(instance);
 	agenda(instance);
+	applyDiagram(instance);
 	simpleMenu(instance);
 	// copyCode(instance);
 	cc(instance);
