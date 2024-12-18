@@ -332,12 +332,15 @@ hr {
     height: 0;
     margin: 0.4em 0;
 }
-.centered-content {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+section.centered-content {
+    margin: 0;
+    max-width: 100% !important;
+    display: block;
     text-align: center;
-    height: 100%; /* 或指定具體高度 */
+    place-content: safe center center;
+    height: 720px;
+    padding: 78.5px;
+    width: 1280px;
 }
 a {
     color: var(--JAMA-cyan);
@@ -380,16 +383,6 @@ li[data-bespoke-marp-fragment="inactive"] {
     transition: transform 0.3s ease;
     visibility: visible;
     opacity: 0.2;
-}
-td:hover {
-    /* box-shadow: 12px 2px 15px rgba(0, 0, 0, 0.3); */
-    color: #2d696a;
-    /* border: 2px solid #2d696a; */
-    background-color: white; /* sets the background color of the table header */
-    transition: opacity 0.5s ease;
-}
-tr:hover {
-    transition: transform 0.3s ease;
 }
 button {
     display: inline-block;

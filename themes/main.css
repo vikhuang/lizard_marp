@@ -20,6 +20,7 @@
 @import "components/_menubar";
 @import "components/_tables";
 @import "components/_code";
+@import "components/_shadow";
 @import "components/_lists";
 @import "components/_layout";
 @import "components/_markmap";

@@ -5,11 +5,12 @@ section table {
     border-collapse: collapse;
     /* border: 1px solid; */
     /* border-color: var(--JAMA-background); */
-    border-radius: 2px; /* sets the border radius */
-    overflow: hidden; /* hides the overflow from the rounded corners */
-    margin: 2em 0 0 0;
+    border-radius: 2px;
+    overflow: visible; /* hides the overflow from the rounded corners */
+    margin: 0;
     transition: transform 0.3s ease;
     margin: 0 auto;
+    z-index: 1;
 }
 
 section table th,
@@ -28,10 +29,87 @@ section table thead th {
     /* background: var(--JAMA-foreground); */
     color: var(--JAMA-background);
     font-size: 0.8em;
-    color: white; /* sets the text color of the table header to white */
 }
+
 section table tbody > tr:nth-child(even) td,
 section table tbody > tr:nth-child(even) th {
     background: var(--JAMA-current-line);
-    font-size: 0.8em;
+}
+
+section table tbody > tr:nth-child(odd) td,
+section table tbody > tr:nth-child(odd) th {
+    background: var(--JAMA-background);
+}
+
+tr.emphasize,
+tr:hover {
+    transform: scale(1.12);
+    position: relative;
+    z-index: 10;
+    outline: 2px solid var(--JAMA-blue);
+    outline-offset: -2px; /* 調整 outline 緊貼內容 */
+}
+tr.emphasize::after,
+tr:hover::after {
+    content: "";
+    position: absolute;
+    bottom: -5px; /* 調整陰影距離 */
+    left: 5%;
+    width: 90%;
+    height: 10px; /* 模糊範圍高度 */
+    background: rgba(0, 0, 0, 0.2); /* 模擬陰影顏色 */
+    filter: blur(4px); /* 模糊效果 */
+    z-index: -1; /* 置於背景 */
+    pointer-events: none; /* 避免影響互動 */
+}
+
+tr {
+    transition: all 0.3s ease;
+    transform-origin: center;
+}
+
+td:hover {
+    color: #2d696a;
+    transition: opacity 0.5s ease;
+}
+
+.responsive-table tr:hover {
+    transform: scale(1.02);
+    background: #f9f9f9;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    position: relative;
+    z-index: 1;
+}
+
+.responsive-table {
+    width: 100%;
+    margin: 20px 0;
+    border-collapse: collapse;
+    background: white;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.responsive-table th {
+    background: #f5f5f5;
+    padding: 12px;
+    text-align: left;
+    font-weight: bold;
+    color: #333;
+    border-bottom: 2px solid #ddd;
+}
+
+.responsive-table td {
+    padding: 12px;
+    border-bottom: 1px solid #eee;
+}
+
+.responsive-table tr:hover {
+    background: #f9f9f9;
+}
+
+@media screen and (max-width: 600px) {
+    .responsive-table {
+        display: block;
+        overflow-x: auto;
+    }
 }

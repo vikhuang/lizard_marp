@@ -1,0 +1,18 @@
+/* @theme components/_shadow */
+/* 模組化模糊底部陰影 */
+.blur-shadow {
+    position: relative;
+}
+
+.blur-shadow::after {
+    content: "";
+    position: absolute;
+    bottom: var(--blur-bottom, -4px); /* 控制陰影的距離 */
+    left: 0;
+    width: 100%;
+    height: var(--blur-height, 8px); /* 陰影的高度 */
+    background: var(--blur-color, rgba(0, 0, 0, 0.2)); /* 陰影顏色 */
+    filter: blur(var(--blur-radius, 4px)); /* 模糊程度 */
+    z-index: -1;
+    pointer-events: none;
+}

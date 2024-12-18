@@ -1,8 +1,8 @@
 const cheerioWrapper = require("./cheerio-utils");
 
 module.exports = cheerioWrapper.createPlugin(($, result) => {
-	// Find all sections with class "diagram"
-	$("section.diagram").each(function () {
+	// Find all sections with class "diagram-TD" or "diagram-LR"
+	$("section.diagram-TD, section.diagram-LR").each(function () {
 		const $section = $(this);
 		const $ul = $section.find("> ul");
 
@@ -11,8 +11,12 @@ module.exports = cheerioWrapper.createPlugin(($, result) => {
 			return;
 		}
 
+		// 根據類別決定方向
+		const isTopDown = $section.hasClass("diagram-TD");
+		const diagramClass = isTopDown ? "diagram TD" : "diagram LR";
+
 		// Create the base diagram structure
-		const $diagram = $('<div class="diagram"></div>');
+		const $diagram = $(`<div class="${diagramClass}"></div>`);
 		const $level1 = $('<div class="level-1"></div>');
 		$diagram.append($level1);
 
@@ -26,8 +30,6 @@ module.exports = cheerioWrapper.createPlugin(($, result) => {
 			$level1.append(branchResult.element);
 			maxDepth = Math.max(maxDepth, branchResult.depth);
 		});
-
-		// console.log(`Processed diagram with max depth: ${maxDepth}`);
 
 		// Replace the original ul with our new structure
 		$ul.replaceWith($diagram);
