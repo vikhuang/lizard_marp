@@ -21,7 +21,7 @@ footer: "[■](#table-of-contents)"
 
 ## TAble
 
-<!-- _class: centered-content -->
+<!-- _class: center -->
 
 | Column1 | Column2 | Column3 | Column4 |
 | --------------- | --------------- | --------------- | --------------- |
@@ -84,8 +84,6 @@ happy
 ---
 
 ## Thanks
-
-<!-- _class: center -->
 
 <hr>
 

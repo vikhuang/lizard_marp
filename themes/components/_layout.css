@@ -332,15 +332,22 @@ hr {
     height: 0;
     margin: 0.4em 0;
 }
-section.centered-content {
+section.center {
     margin: 0;
     max-width: 100% !important;
     display: block;
     text-align: center;
     place-content: safe center center;
-    height: 720px;
-    padding: 78.5px;
-    width: 1280px;
+    padding: 100px;
+}
+section.center {
+    text-align: left;
+}
+
+section.center h2,
+section.center h3 {
+    margin: 1em !important;
+    max-width: 100% !important;
 }
 a {
     color: var(--JAMA-cyan);
