@@ -151,6 +151,10 @@ section::after {
     position: absolute;
     color: var(--JAMA-blue);
 }
+section::after {
+    content: attr(data-marpit-pagination) " of "
+        attr(data-marpit-pagination-total);
+}
 section header {
     position: absolute;
     box-sizing: border-box;
@@ -207,8 +211,6 @@ section.noheader header {
 /*     animation-duration: 1s; */
 /*     animation-fill-mode: both; */
 /*     animation-timing-function: cubic-bezier(0.6, 0.05, 0.4, 0.95); */
-/*     content: attr(data-marpit-pagination) " / " */
-/*         attr(data-marpit-pagination-total); */
 /* } */
 
 section.medium {
