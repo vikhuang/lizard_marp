@@ -42,12 +42,36 @@ section.chat > ul li {
 }
 
 section.chat > ul li:nth-child(even) {
-    background-color: var(--JAMA-green);
-    color: white;
+    background-color: var(--JAMA-background);
     margin-right: auto;
     margin-left: 0;
     border-bottom-left-radius: 5px;
+    position: relative;
 }
+section.chat > ul li:nth-child(even)::before {
+    content: "";
+    position: absolute;
+    left: -50px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-image: url("lizard_realistic_small.jpg"); /* Replace with your image path */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* backup */
+
+/* section.chat > ul li:nth-child(even) { */
+/*     background-color: var(--JAMA-green); */
+/*     color: white; */
+/*     margin-right: auto; */
+/*     margin-left: 0; */
+/*     border-bottom-left-radius: 5px; */
+/* } */
 
 section.chat > ul li:nth-child(odd) {
     background-color: #f5f5f5;
