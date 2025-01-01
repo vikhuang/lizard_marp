@@ -15,13 +15,24 @@ footer: "[■](#table-of-contents)"
 
 ![h:50px](https://i.imgur.com/TLuxHNS.png)
 
-<!-- ![RLQ h:50](https://i.imgur.com/3fIm24v.png) -->
-
 # Preface
+
+## Chat
+
+<!-- _class: chat talking -->
+
+* hey, 可以使用 CSS 的 linear-gradient 實現漸層效果，例如：
+* hellow
+* hellow
+* hellow lore
 
 ## TAble
 
 <!-- _class: center -->
+
+![x:10 y:10 h:100px](https://i.imgur.com/3fIm24v.png){data-marpit-fragment="1"}
+
+<video src="./2025-01-02_03-07-17.mp4" controls width="70%"></video>
 
 | Column1 | Column2 | Column3 | Column4 |
 | --------------- | --------------- | --------------- | --------------- |
@@ -33,38 +44,38 @@ footer: "[■](#table-of-contents)"
 
 <!-- _class: diagram-TD -->
 
-- A (level 1)
-  - A1 (level 2)
-    - A2 (level 2)
-  - **A3 (level 2)**
-- B (level 1)
-  - B1 (level 2)
-  - B2 (level 2) <br> hellow
-    - B2.1
-      - B2.2
-      - B2.2
-      - B2.2
-      - B2.2 hellow
-  - **B3 (level 2)**
+* A (level 1)
+  * A1 (level 2)
+    * A2 (level 2)
+  * **A3 (level 2)**
+* B (level 1)
+  * B1 (level 2)
+  * B2 (level 2) <br> hellow
+    * B2.1
+      * B2.2
+      * B2.2
+      * B2.2
+      * B2.2 hellow
+  * **B3 (level 2)**
 
 ## Left to Right
 
 <!-- _class: diagram-LR -->
 
-- A (level 1)
-  - B
-    - C
-    - D
-    - E
+* A (level 1)
+  * B
+    * C
+    * D
+    * E
 
 ## Grid List
 
 <!-- _class: flexImg -->
 
-- ![h:350px](https://i.imgur.com/sfQ3GZU.png)
-  - hellow
-- ![h:350px](https://i.imgur.com/sfQ3GZU.png)
-  - hellow
+* ![h:350px](https://i.imgur.com/sfQ3GZU.png)
+  * hellow
+* ![h:350px](https://i.imgur.com/sfQ3GZU.png)
+  * hellow
 
 happy
 

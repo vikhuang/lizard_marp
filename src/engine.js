@@ -12,6 +12,8 @@ const nexth3 = require("./utils/nexth3.js");
 // const copyCode = require("./utils/copy_code");
 const agenda = require("./utils/agenda");
 const cc = require("./utils/add_cc");
+const absImage = require("./utils/absImage");
+const autoplayVideo = require("./utils/autoplayVideo");
 // FIX: const addZoomFeature = require("./utils/zoom")
 // FIX: const roman = require("./utils/roman")
 
@@ -30,6 +32,8 @@ module.exports = ({ marp }) => {
 	simpleMenu(instance);
 	// copyCode(instance);
 	cc(instance);
+	absImage(instance);
+	autoplayVideo(instance);
 	// addZoomFeature(instance)
 	// roman(instance)
 

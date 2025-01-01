@@ -24,7 +24,8 @@ section.blue a {
     text-decoration: none;
 }
 
-section.blue ol {
+section.blue ol.agenda {
+    font-size: 0.8em;
     position: relative;
     list-style-type: upper-roman;
     padding-left: 3em;
@@ -54,8 +55,9 @@ section.blue li.after::marker {
 }
 
 section.blue {
-    background-color: var(--JAMA-blue);
-    color: var(--JAMA-background);
+    /* background-color: var(--JAMA-blue); */
+    background: linear-gradient(50deg, var(--JAMA-blue) 20%, #6c9a77 100%);
+    /* color: var(--JAMA-background); */
     font-size: 36px;
 }
 

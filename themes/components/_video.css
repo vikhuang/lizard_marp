@@ -1,0 +1,58 @@
+/* @theme components/_video */
+/* Wiki Links Styling */
+
+/* Could Use thise as well for Individual Controls */
+video::-webkit-media-controls-volume-slider {
+    display: none;
+}
+
+video::-webkit-media-controls-mute-button {
+    display: none;
+}
+
+video::-webkit-media-controls-timeline {
+    display: none;
+}
+
+video::-webkit-media-controls-current-time-display {
+    display: none;
+}
+
+video::-webkit-media-controls-fullscreen-button {
+    display: none;
+}
+video::-webkit-media-controls-time-remaining-display {
+    display: none;
+}
+video::-webkit-media-controls-toggle-closed-captions-button {
+    display: none;
+}
+video::-webkit-media-controls-volume-slider {
+    display: none;
+}
+
+video::-webkit-media-controls-play-button {
+    /* 將按鈕設為圓形 */
+    /* border-radius: 50%;  */
+    /* background-color: var(--JAMA-blue); */
+    display: none;
+}
+
+video::-webkit-media-controls-panel {
+    background-image: none !important;
+}
+
+.video-progress-container {
+    width: 100%;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.2);
+    position: relative;
+    overflow: hidden;
+}
+
+.video-progress-bar {
+    height: 100%;
+    background: #your-color-here;
+    width: 0;
+    transition: width 0.2s ease;
+}

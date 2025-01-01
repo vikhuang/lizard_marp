@@ -180,10 +180,20 @@ section header a {
     -webkit-text-fill-color: transparent;
 }
 
-section footer a {
+section footer a:hover {
     background: var(--JAMA-blue);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    visibility: visible;
+    opacity: 1;
+}
+
+section footer a {
+    text-decoration: none;
+    opacity: 0;
+    transition:
+        opacity 0.3s ease,
+        visibility 0.3s ease;
 }
 
 section footer {

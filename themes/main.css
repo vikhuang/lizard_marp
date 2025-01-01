@@ -23,7 +23,9 @@
 @import "components/_shadow";
 @import "components/_lists";
 @import "components/_layout";
+@import "components/_video";
 @import "components/_markmap";
+@import "components/_chat";
 @import "components/_images";
 @import "components/_wikilinks";
 @import "components/_other_tags";

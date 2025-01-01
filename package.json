@@ -41,6 +41,7 @@
 		"markdown-it-graphviz": "^1.1.2",
 		"markdown-it-hashtag": "^0.4.0",
 		"markdown-it-hashtags": "^1.0.2",
+		"markdown-it-html5-embed": "^1.0.0",
 		"markdown-it-html5-media": "^0.7.1",
 		"markdown-it-include": "^2.0.0",
 		"markdown-it-ins": "^4.0.0",
