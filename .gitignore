@@ -109,3 +109,6 @@ Thumbs.db
 .mypy_cache
 .venv
 .vscode
+
+# Local Netlify folder
+.netlify
