@@ -689,9 +689,12 @@ section.timeline > ul:first-of-type {
     display: flex; /* 使用 flex 排列 */
     gap: 10px; /* 項目間距 */
     margin-top: 255px;
-    line-height: 2.5em;
     border-top: 1px solid #999; /* 可根據需求調整邊框顏色與粗細 */
     margin: 0; /* 根據需要調整外邊距 */
+    /* list-style: none; */
+}
+section.timeline > ul:first-of-type code {
+    border: 2px solid var(--JAMA-blue) !important;
     /* list-style: none; */
 }
 
@@ -712,7 +715,6 @@ section.timeline mark {
     font-size: 1.2em;
     color: var(--JAMA-blue);
 }
-/* flexList */
 
 section.flexList h2 {
     padding-bottom: 1em;

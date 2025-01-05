@@ -3,7 +3,7 @@ const applyPlugins = require("./plugins");
 const applyLineNumber = require("./utils/lineNumber");
 const applyStrongTb = require("./utils/strong_tb");
 const addClassPerRule = require("./utils/add_class_per_rule");
-const applyDate = require("./utils/date");
+// const applyDate = require("./utils/date");
 const applyLayout = require("./utils/layout");
 const applyDiagram = require("./utils/diagram");
 const simpleMenu = require("./utils/simplemenu");
@@ -25,7 +25,7 @@ module.exports = ({ marp }) => {
 	addClassPerRule(instance);
 	applyStrongTb(instance);
 	applyH2text(instance);
-	applyDate(instance);
+	// applyDate(instance);
 	// nexth3(instance);
 	agenda(instance);
 	applyDiagram(instance);
