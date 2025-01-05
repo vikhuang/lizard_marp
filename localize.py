@@ -12,11 +12,14 @@ import os
 import random
 import time
 from urllib.parse import urljoin, urlparse
+from io import BytesIO
 
 import requests
 from bs4 import BeautifulSoup
 from requests.adapters import HTTPAdapter
 from requests.packages.urllib3.util.retry import Retry
+from svglib.svglib import svg2rlg
+from reportlab.graphics import renderPM
 
 
 class HTMLImageDownloader:
@@ -68,15 +71,26 @@ class HTMLImageDownloader:
             img_url = urljoin(base_url, img_url)
 
         try:
-            # Skip data URLs
-            if img_url.startswith("data:"):
+            # Skip data URLs and twemoji
+            if img_url.startswith("data:") or 'twemoji' in img_url:
                 return img_url
 
             # Generate filename from URL
             url_hash = hashlib.md5(img_url.encode()).hexdigest()
-            file_extension = os.path.splitext(urlparse(img_url).path)[1]
-            if not file_extension:
+            file_extension = os.path.splitext(urlparse(img_url).path)[1].lower()
+            
+            # Set appropriate extension and headers based on file type
+            headers = self.headers.copy()
+            is_svg = file_extension == '.svg' or 'svg' in img_url.lower()
+            
+            if is_svg:
+                headers.update({
+                    'Accept': 'image/svg+xml,application/xml,*/*',
+                })
+                file_extension = '.svg'
+            elif not file_extension:
                 file_extension = ".jpg"  # Default extension
+
             local_filename = f"{url_hash}{file_extension}"
             local_path = os.path.join(self.assets_dir, local_filename)
 
@@ -92,13 +106,12 @@ class HTMLImageDownloader:
 
             # Download the image
             print(f"Downloading {img_url}...")
-            response = self.session.get(img_url, headers=self.headers, stream=True)
+            response = self.session.get(img_url, headers=headers)
             response.raise_for_status()
 
-            # Save the image
-            with open(local_path, "wb") as f:
-                for chunk in response.iter_content(chunk_size=8192):
-                    f.write(chunk)
+            # Save the file
+            with open(local_path, 'wb') as f:
+                f.write(response.content)
 
             print(f"Successfully downloaded to {relative_path}")
             return relative_path
@@ -111,16 +124,49 @@ class HTMLImageDownloader:
         """Process HTML content, download images, and update src attributes."""
         soup = BeautifulSoup(html_content, "html.parser")
 
-        # Process all img tags
-        total_images = len(soup.find_all("img"))
+        # Find all elements with src attributes (img, embed, object)
+        elements_with_src = soup.find_all(lambda tag: tag.get('src', None) is not None)
+        
+        # Find all elements with background-image in style
+        elements_with_bg = soup.find_all(lambda tag: tag.get('style', '').find('background-image') != -1)
+        
+        # Find all SVG images (both inline and referenced)
+        svg_elements = soup.find_all('svg')
+        svg_uses = soup.find_all('use')
+        
+        total_images = len(elements_with_src) + len(elements_with_bg) + len(svg_uses)
         print(f"\nFound {total_images} images to process")
-
-        for i, img in enumerate(soup.find_all("img"), 1):
-            src = img.get("src")
+        
+        # Process elements with src attributes
+        for i, elem in enumerate(elements_with_src, 1):
+            src = elem.get("src")
             if src:
                 print(f"\nProcessing image {i}/{total_images}")
                 local_path = self.download_image(src, base_url)
-                img["src"] = local_path
+                elem["src"] = local_path
+
+        # Process background images
+        for i, elem in enumerate(elements_with_bg, len(elements_with_src) + 1):
+            style = elem.get("style", "")
+            if "background-image" in style:
+                url_start = style.find("url(") + 4
+                url_end = style.find(")", url_start)
+                if url_start > 4 and url_end != -1:
+                    url = style[url_start:url_end].strip("'\"")
+                    print(f"\nProcessing background image {i}/{total_images}")
+                    local_path = self.download_image(url, base_url)
+                    new_style = style[:url_start] + f"'{local_path}'" + style[url_end:]
+                    elem["style"] = new_style
+
+        # Process SVG use elements (external references)
+        for i, use_elem in enumerate(svg_uses, len(elements_with_src) + len(elements_with_bg) + 1):
+            href = use_elem.get('href') or use_elem.get('xlink:href')
+            if href and (href.startswith('http://') or href.startswith('https://')):
+                print(f"\nProcessing SVG reference {i}/{total_images}")
+                local_path = self.download_image(href, base_url)
+                use_elem['href'] = local_path
+                if 'xlink:href' in use_elem.attrs:
+                    use_elem['xlink:href'] = local_path
 
         return str(soup)
 
