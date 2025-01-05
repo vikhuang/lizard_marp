@@ -12,14 +12,10 @@ import os
 import random
 import time
 from urllib.parse import urljoin, urlparse
-from io import BytesIO
-
 import requests
 from bs4 import BeautifulSoup
 from requests.adapters import HTTPAdapter
 from requests.packages.urllib3.util.retry import Retry
-from svglib.svglib import svg2rlg
-from reportlab.graphics import renderPM
 
 
 class HTMLImageDownloader:
@@ -79,16 +75,10 @@ class HTMLImageDownloader:
             url_hash = hashlib.md5(img_url.encode()).hexdigest()
             file_extension = os.path.splitext(urlparse(img_url).path)[1].lower()
             
-            # Set appropriate extension and headers based on file type
+            # Set appropriate headers
             headers = self.headers.copy()
-            is_svg = file_extension == '.svg' or 'svg' in img_url.lower()
             
-            if is_svg:
-                headers.update({
-                    'Accept': 'image/svg+xml,application/xml,*/*',
-                })
-                file_extension = '.svg'
-            elif not file_extension:
+            if not file_extension:
                 file_extension = ".jpg"  # Default extension
 
             local_filename = f"{url_hash}{file_extension}"
@@ -130,11 +120,7 @@ class HTMLImageDownloader:
         # Find all elements with background-image in style
         elements_with_bg = soup.find_all(lambda tag: tag.get('style', '').find('background-image') != -1)
         
-        # Find all SVG images (both inline and referenced)
-        svg_elements = soup.find_all('svg')
-        svg_uses = soup.find_all('use')
-        
-        total_images = len(elements_with_src) + len(elements_with_bg) + len(svg_uses)
+        total_images = len(elements_with_src) + len(elements_with_bg)
         print(f"\nFound {total_images} images to process")
         
         # Process elements with src attributes
@@ -157,16 +143,6 @@ class HTMLImageDownloader:
                     local_path = self.download_image(url, base_url)
                     new_style = style[:url_start] + f"'{local_path}'" + style[url_end:]
                     elem["style"] = new_style
-
-        # Process SVG use elements (external references)
-        for i, use_elem in enumerate(svg_uses, len(elements_with_src) + len(elements_with_bg) + 1):
-            href = use_elem.get('href') or use_elem.get('xlink:href')
-            if href and (href.startswith('http://') or href.startswith('https://')):
-                print(f"\nProcessing SVG reference {i}/{total_images}")
-                local_path = self.download_image(href, base_url)
-                use_elem['href'] = local_path
-                if 'xlink:href' in use_elem.attrs:
-                    use_elem['xlink:href'] = local_path
 
         return str(soup)
 
