@@ -1,0 +1,78 @@
+{
+  "plugins": [
+    {
+      "require": "./utils/wikilinks"
+    },
+    {
+      "require": "markdown-it-github-alert"
+    },
+    {
+      "require": "markdown-it-admon"
+    },
+    {
+      "require": "markdown-it-plantuml"
+    },
+    {
+      "require": "@kazumatu981/markdown-it-fontawesome"
+    },
+    {
+      "require": "markdown-it-anchor"
+    },
+    {
+      "require": "markdown-it-attrs",
+      "config": {
+        "leftDelimiter": "{",
+        "rightDelimiter": "}",
+        "allowedAttributes": []
+      }
+    },
+    {
+      "require": "markdown-it-collapsible"
+    },
+    {
+      "require": "markdown-it-ins"
+    },
+    {
+      "require": "markdown-it-hashtag"
+    },
+    {
+      "require": "@kazumatu981/markdown-it-kroki",
+      "config": {
+        "entrypoint": "https://kroki.io"
+      }
+    },
+    {
+      "require": "markdown-it-mark"
+    },
+    {
+      "require": "markdown-it-table-merge-cells"
+    },
+    {
+      "require": "markdown-it-label"
+    },
+    {
+      "require": "markdown-it-include"
+    },
+    {
+      "require": "markdown-it-deflist"
+    },
+    {
+      "require": "markdown-it-sub"
+    },
+    {
+      "require": "markdown-it-sup"
+    },
+    {
+      "require": "markdown-it-table-of-contents"
+    },
+    {
+      "require": "markdown-it-container"
+    },
+    {
+      "require": "markdown-it-ruby"
+    },
+    {
+      "require": "markdown-it-task-lists"
+    }
+  ]
+}

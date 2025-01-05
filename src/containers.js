@@ -16,25 +16,28 @@ function createContainer(name) {
 	];
 }
 
-const containerNames = [
-	"bigtable",
-	"tetra",
-	"tri",
-	"boxlist",
-	"top",
-	"center",
-	"columns",
-	"split",
-	"map",
-	"material",
-	"markmap",
-	"high",
-	"scroll",
-	"outline",
-	"date",
-	"typewriter",
-	"webcam",
-];
+// Generic container handler for any single word name
+function createGenericContainer() {
+    return [
+        markdownItContainer,
+        '',
+        {
+            validate: function(params) {
+                // Check if it's a single word (no spaces) and not a special container
+                const name = params.trim();
+                return name && !name.includes(' ') && !specialContainers[name];
+            },
+            render: function(tokens, idx) {
+                const name = tokens[idx].info.trim();
+                if (tokens[idx].nesting === 1) {
+                    return `<div class="${name}">\n`;
+                } else {
+                    return '</div>\n';
+                }
+            }
+        }
+    ];
+}
 
 const specialContainers = {
 	half: {
@@ -110,6 +113,48 @@ const specialContainers = {
 			}
 		},
 	},
+	github: {
+		render: function (tokens, idx) {
+			if (tokens[idx].nesting === 1) {
+				const params = tokens[idx].info.trim().split(' ');
+				
+				// Find the text token containing the URL
+				let contentToken = null;
+				for (let i = idx + 1; i < tokens.length; i++) {
+					if (tokens[i].type === 'inline') {
+						contentToken = tokens[i];
+						break;
+					}
+				}
+
+				if (!contentToken) {
+					return `<div class="github error">No content provided</div>\n`;
+				}
+
+				let repoPath = contentToken.content
+					.replace(/^\s+|\s+$/g, '') // Remove leading/trailing whitespace including newlines
+					.replace(/\n/g, ''); // Remove any newlines in the middle
+
+				const githubUrl = processGitHubUrl(repoPath);
+				if (!githubUrl) {
+					return `<div class="github error">Invalid GitHub URL format</div>\n`;
+				}
+
+				const encodedUrl = encodeURIComponent(githubUrl);
+				
+				return `<div class="github" style="position: relative;"><style>.github > p { display: none; }</style>
+					<iframe 
+						frameborder="0" 
+						scrolling="no" 
+						style="width:100%; height:439px;" 
+						allow="clipboard-write" 
+						src="https://htlin-emgithub.netlify.app/iframe.html?target=${encodedUrl}%23L${params[1]}-L${params[2]}&style=github&type=code&showBorder=on&showLineNumbers=on&showFileMeta=on&showFullPath=on&showCopy=on">
+					</iframe>\n`;
+			} else {
+				return "</div>\n";
+			}
+		},
+	},
 	webcam: {
 		render: function (tokens, idx) {
 			if (tokens[idx].nesting === 1) {
@@ -150,8 +195,76 @@ const specialContainers = {
 	},
 };
 
+// Function to validate and transform GitHub URLs
+function processGitHubUrl(url) {
+	console.log('Processing URL:', url);
+	
+	// Remove any leading/trailing whitespace and newlines
+	url = url.trim();
+	console.log('After trim:', url);
+
+	// Handle full URLs
+	if (url.startsWith('http')) {
+		console.log('Processing as full URL');
+		// Handle raw.githubusercontent.com URLs
+		if (url.includes('raw.githubusercontent.com')) {
+			url = url.replace('raw.githubusercontent.com', 'github.com')
+				.replace('refs/heads/', 'blob/');
+		}
+		return url;
+	}
+
+	// Handle repository path format
+	console.log('Processing as repo path');
+	const pathParts = url.split('/');
+	console.log('Path parts:', pathParts);
+	
+	// Basic validation that the path looks like a GitHub repo path
+	if (pathParts.length < 4) {
+		console.warn('Path too short, need at least 4 parts');
+		return null;
+	}
+	
+	if (!['blob', 'tree'].includes(pathParts[2])) {
+		console.warn('Third part must be blob or tree, got:', pathParts[2]);
+		return null;
+	}
+
+	const githubUrl = `https://github.com/${url}`;
+	console.log('Final URL:', githubUrl);
+	return githubUrl;
+}
+
+// Validate line numbers
+function validateLineNumbers(params) {
+	if (params.length < 3) {
+		return { error: 'Missing line numbers. Format: :::github startLine endLine' };
+	}
+
+	const startLine = parseInt(params[1], 10);
+	const endLine = parseInt(params[2], 10);
+
+	if (isNaN(startLine) || isNaN(endLine)) {
+		return { error: 'Line numbers must be integers' };
+	}
+
+	if (startLine < 1) {
+		return { error: 'Start line must be greater than 0' };
+	}
+
+	if (endLine < startLine) {
+		return { error: 'End line must be greater than or equal to start line' };
+	}
+
+	if (endLine - startLine > 500) {
+		return { error: 'Cannot display more than 500 lines at once' };
+	}
+
+	return { startLine, endLine };
+}
+
 module.exports = {
-	createContainer,
-	containerNames,
-	specialContainers,
+    createContainer,
+    createGenericContainer,
+    specialContainers
 };

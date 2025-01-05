@@ -1,0 +1,80 @@
+{
+  "plugins": [
+    {
+      "name": "markdown-it-attrs",
+      "config": {
+        "leftDelimiter": "{",
+        "rightDelimiter": "}",
+        "allowedAttributes": []
+      }
+    },
+    {
+      "name": "@kazumatu981/markdown-it-kroki",
+      "config": {
+        "entrypoint": "https://kroki.io"
+      }
+    },
+    {
+      "name": "markdown-it-include",
+      "config": {
+        "root": "/Users/htlin/Dropbox/slides/contents/",
+        "includeRe": "\\{\\{(.+?)\\}\\}",
+        "bracesAreOptional": true
+      }
+    },
+    {
+      "name": "markdown-it-admon"
+    },
+    {
+      "name": "markdown-it-mark"
+    },
+    {
+      "name": "markdown-it-ins"
+    },
+    {
+      "name": "markdown-it-sub"
+    },
+    {
+      "name": "markdown-it-sup"
+    },
+    {
+      "name": "markdown-it-ruby"
+    },
+    {
+      "name": "markdown-it-label"
+    },
+    {
+      "name": "@kazumatu981/markdown-it-fontawesome"
+    },
+    {
+      "name": "markdown-it-anchor"
+    },
+    {
+      "name": "markdown-it-table-of-contents"
+    },
+    {
+      "name": "markdown-it-deflist"
+    },
+    {
+      "name": "markdown-it-collapsible"
+    },
+    {
+      "name": "markdown-it-task-lists"
+    },
+    {
+      "name": "markdown-it-table-merge-cells"
+    },
+    {
+      "name": "markdown-it-container"
+    },
+    {
+      "name": "markdown-it-plantuml"
+    },
+    {
+      "name": "markdown-it-hashtag"
+    },
+    {
+      "name": "markdown-it-github-alert"
+    }
+  ]
+}
