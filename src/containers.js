@@ -197,15 +197,11 @@ const specialContainers = {
 
 // Function to validate and transform GitHub URLs
 function processGitHubUrl(url) {
-	console.log('Processing URL:', url);
-	
 	// Remove any leading/trailing whitespace and newlines
 	url = url.trim();
-	console.log('After trim:', url);
 
 	// Handle full URLs
 	if (url.startsWith('http')) {
-		console.log('Processing as full URL');
 		// Handle raw.githubusercontent.com URLs
 		if (url.includes('raw.githubusercontent.com')) {
 			url = url.replace('raw.githubusercontent.com', 'github.com')
@@ -215,23 +211,18 @@ function processGitHubUrl(url) {
 	}
 
 	// Handle repository path format
-	console.log('Processing as repo path');
 	const pathParts = url.split('/');
-	console.log('Path parts:', pathParts);
 	
 	// Basic validation that the path looks like a GitHub repo path
 	if (pathParts.length < 4) {
-		console.warn('Path too short, need at least 4 parts');
 		return null;
 	}
 	
 	if (!['blob', 'tree'].includes(pathParts[2])) {
-		console.warn('Third part must be blob or tree, got:', pathParts[2]);
 		return null;
 	}
 
 	const githubUrl = `https://github.com/${url}`;
-	console.log('Final URL:', githubUrl);
 	return githubUrl;
 }
 
