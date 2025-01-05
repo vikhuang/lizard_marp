@@ -129,13 +129,25 @@ section code {
 section > p {
     transition: transform 0.2s ease;
 }
-section > a {
+section a {
     text-decoration: none;
     font-weight: 700;
     background: -webkit-linear-gradient(right, #6c9a77, #2d696a);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    text-decoration: none;
 }
+
+section a::after {
+    content: " 🔗"; /* show an arrow before the href */
+}
+
+/* everything below is for demo appearances and not important to the concept */
+
+section > a:hover {
+    background: #2d696a;
+}
+
 em {
     font-family: "Lora", serif; /* 使用 'Lora' 字體，若無法加載則回退到系統的serif字體 */
     font-weight: 700;

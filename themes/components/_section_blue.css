@@ -21,7 +21,14 @@ section.blue::after {
 
 section.blue a {
     color: var(--JAMA-background);
+    background: none;
+    -webkit-background-clip: border-box;
+    -webkit-text-fill-color: initial;
     text-decoration: none;
+}
+
+section.blue a::after {
+    content: none; /* show an arrow before the href */
 }
 
 section.blue ol.agenda {
