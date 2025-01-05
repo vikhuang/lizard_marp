@@ -36,7 +36,7 @@ module.exports = (instance) => {
             
             const promise = getMetadata(url).then(metadata => {
                 // Create card structure
-                const $card = $('<div class="url-card"></div>');
+                const $card = $(`<a href="${url}" target="_blank" class="url-card url-card-link"></a>`);
                 
                 // Create flex container
                 const $flexContainer = $('<div class="url-card-container"></div>');

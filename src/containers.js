@@ -118,6 +118,51 @@ const specialContainers = {
 			if (tokens[idx].nesting === 1) {
 				const params = tokens[idx].info.trim().split(' ');
 				
+				// Parse line range and height
+				function parseParams(params) {
+					const result = {
+						startLine: 1,
+						endLine: 1,
+						height: 550 // default height
+					};
+
+					// Get the line range
+					const lineRange = params[1].split('-');
+					if (lineRange.length === 2) {
+						result.startLine = parseInt(lineRange[0], 10);
+						result.endLine = parseInt(lineRange[1], 10);
+					} else {
+						return { error: 'Invalid line range format. Use: startLine-endLine' };
+					}
+
+					// Check for height parameter
+					if (params[2] && params[2].startsWith('h:')) {
+						const height = parseInt(params[2].substring(2), 10);
+						if (!isNaN(height) && height > 0) {
+							result.height = height;
+						}
+					}
+
+					// Validate line numbers
+					if (isNaN(result.startLine) || isNaN(result.endLine)) {
+						return { error: 'Line numbers must be integers' };
+					}
+
+					if (result.startLine < 1) {
+						return { error: 'Start line must be greater than 0' };
+					}
+
+					if (result.endLine < result.startLine) {
+						return { error: 'End line must be greater than or equal to start line' };
+					}
+
+					if (result.endLine - result.startLine > 500) {
+						return { error: 'Cannot display more than 500 lines at once' };
+					}
+
+					return result;
+				}
+
 				// Find the text token containing the URL
 				let contentToken = null;
 				for (let i = idx + 1; i < tokens.length; i++) {
@@ -141,14 +186,20 @@ const specialContainers = {
 				}
 
 				const encodedUrl = encodeURIComponent(githubUrl);
+				const parsedParams = parseParams(params);
+				
+				if (parsedParams.error) {
+					return `<div class="github error">${parsedParams.error}</div>\n`;
+				}
 				
 				return `<div class="github" style="position: relative;"><style>.github > p { display: none; }</style>
+					<br>
 					<iframe 
-						frameborder="0" 
-						scrolling="no" 
-						style="width:100%; height:439px;" 
+						frameborder="0"
+						scrolling="yes" 
+						style="width:100%; height:${parsedParams.height}px;" 
 						allow="clipboard-write" 
-						src="https://htlin-emgithub.netlify.app/iframe.html?target=${encodedUrl}%23L${params[1]}-L${params[2]}&style=github&type=code&showBorder=on&showLineNumbers=on&showFileMeta=on&showFullPath=on&showCopy=on">
+						src="https://htlin-emgithub.netlify.app/iframe.html?target=${encodedUrl}%23L${parsedParams.startLine}-L${parsedParams.endLine}&style=github&type=code&showBorder=on&showLineNumbers=on&showFileMeta=on&showFullPath=on&showCopy=on">
 					</iframe>\n`;
 			} else {
 				return "</div>\n";
@@ -224,34 +275,6 @@ function processGitHubUrl(url) {
 
 	const githubUrl = `https://github.com/${url}`;
 	return githubUrl;
-}
-
-// Validate line numbers
-function validateLineNumbers(params) {
-	if (params.length < 3) {
-		return { error: 'Missing line numbers. Format: :::github startLine endLine' };
-	}
-
-	const startLine = parseInt(params[1], 10);
-	const endLine = parseInt(params[2], 10);
-
-	if (isNaN(startLine) || isNaN(endLine)) {
-		return { error: 'Line numbers must be integers' };
-	}
-
-	if (startLine < 1) {
-		return { error: 'Start line must be greater than 0' };
-	}
-
-	if (endLine < startLine) {
-		return { error: 'End line must be greater than or equal to start line' };
-	}
-
-	if (endLine - startLine > 500) {
-		return { error: 'Cannot display more than 500 lines at once' };
-	}
-
-	return { startLine, endLine };
 }
 
 module.exports = {

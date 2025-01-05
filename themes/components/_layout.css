@@ -422,9 +422,69 @@ button {
     border: 1px solid black;
     margin: 10px;
 }
+
+/* summary { */
+/*     color: #2d696a; */
+/*     font-weight: bold; */
+/* } */
+
+details {
+    display: inline-block;
+    position: relative;
+}
+
+details > *:not(summary) {
+    position: absolute;
+    z-index: 50;
+    margin-top: 8px;
+    padding: 30px;
+    width: 356px;
+    background: white;
+    border-radius: 8px;
+    box-shadow:
+        0 10px 15px -3px rgba(0, 0, 0, 0.1),
+        0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    border: 1px solid #e5e7eb;
+    font-size: 18px;
+    color: #4b5563;
+    animation: fadeIn 0.2s ease-out;
+}
+
+/* Material Design Summary Button */
 summary {
-    color: #2d696a;
-    font-weight: bold;
+    cursor: pointer;
+    padding: 8px 16px;
+    background: #f3f4f6;
+    border-radius: 20px;
+    color: #4b5563;
+    font-size: 18px;
+    font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: background-color 0.2s ease;
+    border: 1px solid transparent;
+}
+
+summary:hover {
+    background: #e5e7eb;
+}
+
+summary:focus {
+    outline: none;
+    border-color: var(--JAMA-blue);
+    box-shadow: 0 0 0 3px rgba(147, 197, 253, 0.3);
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-4px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 svg.markmap {
