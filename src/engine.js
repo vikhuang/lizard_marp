@@ -14,6 +14,7 @@ const agenda = require("./utils/agenda");
 const cc = require("./utils/add_cc");
 const absImage = require("./utils/absImage");
 const autoplayVideo = require("./utils/autoplayVideo");
+const urlCard = require("./utils/urlCard");
 // FIX: const addZoomFeature = require("./utils/zoom")
 // FIX: const roman = require("./utils/roman")
 
@@ -34,6 +35,7 @@ module.exports = ({ marp }) => {
 	cc(instance);
 	absImage(instance);
 	autoplayVideo(instance);
+	urlCard(instance);
 	// addZoomFeature(instance)
 	// roman(instance)
 

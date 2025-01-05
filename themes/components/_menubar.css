@@ -33,6 +33,14 @@ section .menu li {
 
 section .menu li a {
     text-decoration: none;
+    background: none;
+    -webkit-background-clip: border-box;
+    -webkit-text-fill-color: initial;
+    text-decoration: none;
+}
+
+section .menu a::after {
+    content: none; /* show an arrow before the href */
 }
 
 section .menu li.done a {
